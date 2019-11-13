@@ -23,6 +23,9 @@
     "react-dom": "^16.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
     "nodemon": "^1.19.4",
     "sass": "^1.23.3",
     "webpack": "^4.41.2",

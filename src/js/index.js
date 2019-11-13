@@ -12,11 +12,7 @@ class LikeButton extends React.Component {
             return 'You liked this.';
         }
 
-        return React.createElement(
-            'div',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
-        );
+        return <div onClick={() => this.setState({ liked: true })}>Like</div>
     }
 }
 const domContainer = document.querySelector('#like_button_container');
