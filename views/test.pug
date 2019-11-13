@@ -3,6 +3,8 @@ html
     title= title
     link(rel="stylesheet", href="css/style.css")
   body
-    h1= message
-    div(id="like_button_container")
+    div(class="jumbotron")
+      h1(class="display-4")= message
+    button(type="button" class="btn btn-info" id="like_button_container")
     script(src="js/bundle.js")
+    span(class="fas fa-camera")
