@@ -4,7 +4,31 @@
 @import "fontawesome/brands.scss";
 @import "fontawesome/regular.scss";
 
+body {
+	background-color: burlywood;
+}
 
-body{
-    background-color: burlywood;
+.carousel {
+	width: 50%;
+	margin: auto;
+	.slick-slider {
+		//background-color: red;
+	}
+	.slick-slide {
+		position: relative;
+        background-color: turquoise;
+        height: auto;
+		&:after {
+			content: "";
+			display: block;
+			padding-top: 56.25%;
+		}
+		> div {
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+		}
+	}
 }

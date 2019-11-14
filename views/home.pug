@@ -1,11 +1,10 @@
 html
   head
     title= title
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css")
     link(rel="stylesheet", href="css/style.css")
   body
     include includes/nav.pug
-    div(class="jumbotron")
-      h1(class="display-4")= message
-    button(type="button" class="btn btn-info" id="like_button_container")
+    div(id="carousel" class="carousel")
     script(src="js/bundle.js")
-    span(class="fas fa-camera")
