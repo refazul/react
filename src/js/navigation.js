@@ -20,44 +20,42 @@ const Subsubmenu = (props) => {
 	}
 	return <div></div>
 }
-const FullDrop = (props) => {
+
+const Submenu = (props) => {
 	const items = props.items || [];
 	if (items.length > 0) {
 		return (
-			<div class="fulldrop">
+			<ul className="fulldrop">
 				{
 					items.map((item) => {
 						return (
-							<div className="column">
-								<h3>{item.text}</h3>
+							<li className="has-sub column">
+								<a href={item.link}>{item.text}</a>
 								<Subsubmenu {...item}/>
-							</div>
+							</li>
 						)
 					})
 				}
-			</div>
+			</ul>
 		);
 	}
 	return <div></div>
 }
 
-
-
 const Navigation = (props) => {
 
 	return (
-
 		<ul class="nav">
 			{
 				props.items.map((item) => {
 					var class_name="";
 					if (item.items && item.items.length > 0) {
-						class_name += " dropdown ";
+						class_name += " dropdown has-sub";
 					}
 					return (
 						<li className={class_name}>
 							<a href={item.link}>{item.text}</a>
-							<FullDrop {...item}/>
+							<Submenu {...item}/>
 						</li>
 					)
 				})

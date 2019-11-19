@@ -13,7 +13,9 @@ export default class Menu extends Component {
 						<span>Menu</span>
 					</label>
 					<input id="mobile_menu" type="checkbox"></input>
-					<Navigation {...navigation_data}/>
+					<div id="megamenu">
+						<Navigation {...navigation_data}/>
+					</div>
 				</div>
 			</div>
 		);
