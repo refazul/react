@@ -60,11 +60,7 @@ const Navigation = (props) => {
 					)
 				})
 			}
-			<li class="search">
-				<form action="Search.php">
-					<i class="icon-search icon-large"></i><input type="text"></input>
-				</form>
-			</li>
+			
 		</ul>
 
 	);
