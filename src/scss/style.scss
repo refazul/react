@@ -4,34 +4,14 @@
 @import "fontawesome/brands.scss";
 @import "fontawesome/regular.scss";
 
+@import 'bootstrap-4.3.1/functions';
+@import 'bootstrap-variables';
+@import 'bootstrap-4.3.1/bootstrap';
+
 body {
 	background-color: burlywood;
 }
 
-.carousel {
-	width: 50%;
-	margin: auto;
-	.slick-slider {
-		//background-color: red;
-	}
-	.slick-slide {
-		position: relative;
-        background-color: turquoise;
-        height: auto;
-		&:after {
-			content: "";
-			display: block;
-			padding-top: 56.25%;
-		}
-		> div {
-			position: absolute;
-			text-align: center;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 100%;
-		}
-	}
-}
 
 /** Menu **/
 
@@ -427,3 +407,5 @@ body {
 #cssmenu > ul > li.has-sub > a:hover:before {
   border-top: 5px solid #ffffff;
 }
+
+@import "admin-lte/AdminLTE.scss";
