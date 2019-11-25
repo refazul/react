@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import $ from 'jquery';
 
 const Menu = (props) => {
@@ -9,6 +9,20 @@ const Menu = (props) => {
 	const [active, setActive] = useState(false);
 	const containerRef = useRef(null);
 
+	useEffect(() => {
+		var container = $(containerRef.current);
+		var submenu = $(container).find('> .nav-treeview');
+		if (active) {
+			$(submenu).stop().slideDown(300, () => {
+				$(container).addClass('menu-open');
+			});
+		} else {
+			$(submenu).stop().slideUp(300, () => {
+				$(container).removeClass('menu-open');
+			});
+		}
+	});
+
 	if (items.length > 0) {
 		li_class_name += " has-treeview ";
 		i_class_name += " right fas fa-angle-left ";
@@ -17,18 +31,9 @@ const Menu = (props) => {
 		return <li className="nav-header">{item.text}</li>
 	}
 	function li_onClick(e) {
-		var container = $(containerRef.current);
-		var submenu = $(container).find('.nav-treeview');
-		if (active) {
-			$(submenu).stop().slideUp(300, () => {
-				$(container).removeClass('menu-open');
-			});
-		} else {
-			$(submenu).stop().slideDown(300, () => {
-				$(container).addClass('menu-open');
-			});
+		if (items.length > 0) {
+			setActive(!active);
 		}
-		setActive(!active);
 	}
 	return (
 		<li className={li_class_name} ref={containerRef}>
