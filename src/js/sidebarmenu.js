@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import $ from 'jquery';
 
 const Menu = (props) => {
 	var li_class_name = "nav-item";
@@ -6,14 +7,32 @@ const Menu = (props) => {
 	var item = props;
 	var items = item.items || [];
 	const [active, setActive] = useState(false);
+	const containerRef = useRef(null);
 
 	if (items.length > 0) {
-		li_class_name += " has-treeview " + (active ? " menu-open " : "");
+		li_class_name += " has-treeview ";
 		i_class_name += " right fas fa-angle-left ";
 	}
+	if (item.type == "header") {
+		return <li className="nav-header">{item.text}</li>
+	}
+	function li_onClick(e) {
+		var container = $(containerRef.current);
+		var submenu = $(container).find('.nav-treeview');
+		if (active) {
+			$(submenu).stop().slideUp(300, () => {
+				$(container).removeClass('menu-open');
+			});
+		} else {
+			$(submenu).stop().slideDown(300, () => {
+				$(container).addClass('menu-open');
+			});
+		}
+		setActive(!active);
+	}
 	return (
-		<li className={li_class_name} >
-			<a className="nav-link" href={item.link} onClick={() => { setActive(!active) }}>
+		<li className={li_class_name} ref={containerRef}>
+			<a className="nav-link" href={item.link} onClick={li_onClick}>
 				<i className={"nav-icon " + item.icon}></i>
 				<p>
 					{item.text}
@@ -22,7 +41,7 @@ const Menu = (props) => {
 				</p>
 
 			</a>
-			<ul className=" nav nav-treeview " style={{ display: (active ? "block" : "none") }}>
+			<ul className=" nav nav-treeview ">
 				{
 					items.map((item) => {
 						return <Menu {...item} />

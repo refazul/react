@@ -264,6 +264,10 @@ export const sidebarmenu_data = {
             ]
         },
         {
+            "type": "header",
+            "text": "EXAMPLES",
+        },
+        {
             "icon": "far fa-calendar-alt",
             "text": "Calender",
             "number": "2",
@@ -383,9 +387,17 @@ export const sidebarmenu_data = {
             ]
         },
         {
+            "type": "header",
+            "text": "MISCELLANEOUS",
+        },
+        {
             "icon": "fas fa-file",
             "text": "Documentation",
             "number": "2",
+        },
+        {
+            "type": "header",
+            "text": "MULTILEVEL EXAMPLE",
         },
         {
             "icon": "fas fa-circle",
@@ -426,6 +438,10 @@ export const sidebarmenu_data = {
         {
             "icon": "fas fa-circle",
             "text": "level 1"
+        },
+        {
+            "type": "header",
+            "text": "LABELS",
         },
         {
             "icon": "far fa-circle text-danger",
