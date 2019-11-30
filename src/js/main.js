@@ -7,7 +7,7 @@ import Sidebarmenu from "./sidebarmenu";
 import Datatable from "./datatable";
 
 
-export default class Menu extends Component {
+export default class Main extends Component {
 	render() {
 		return (
 			<div className="wrapper">
@@ -21,4 +21,4 @@ export default class Menu extends Component {
 		);
 	}
 }
-ReactDOM.render(<Menu />, document.querySelector("#menu"))
+ReactDOM.render(<Main />, document.querySelector("#main"))
