@@ -4,6 +4,7 @@ import Navigation from './navigation';
 
 import { navigation_data, sidebarmenu_data, treenav1_data, datatable_data } from './data';
 import Sidebarmenu from "./sidebarmenu";
+import Carousel from "./carousel";
 import Datatable from "./datatable";
 
 
@@ -14,6 +15,7 @@ export default class Main extends Component {
 				<section className="content-wrapper">
 					<section className="content">
 						<Datatable {...datatable_data} />
+						<Carousel/>
 					</section>
 				</section>
 				<Sidebarmenu {...sidebarmenu_data} />
