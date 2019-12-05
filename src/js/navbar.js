@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import $ from 'jquery';
 // Very important
 
-const Navbar = (props) => {
+const Item = (props) => {
+	var items = props.items || [];
+	var toplevel = props.toplevel;
 	const [count, setCount] = useState(0);
 	const dropdownref = useRef(null);
 	useEffect(() => {
@@ -17,12 +19,33 @@ const Navbar = (props) => {
 		// Just Once
 	}, []);
 	function dropdownOnclick(e) {
-		setCount(count+1);
+		setCount(count + 1);
 	}
+	return (
+		<li className={toplevel & items.length > 0 ? "dropdown" : (items.length > 0 ? "dropdown-submenu" : "")} ref={dropdownref} onMouseEnter={dropdownOnclick} onMouseLeave={dropdownOnclick}>
+			<a  href="#" className="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				{props.text}
+				{
+					toplevel && items.length > 0 ? <b className="caret"></b> : <b></b>
+				}
+			</a>
+			<ul className={items.length > 0 ? "dropdown-menu" : ""}>
+				{
+					items.map((item) => {
+						return <Item {...item} />
+					})
+				}
+			</ul>
+		</li>
+	);
+}
+
+
+const Navbar = (props) => {
+	var items = props.items;
 	return (
 		<div>
 			<nav className="navbar navbar-default" role="navigation">
-
 				<div className="navbar-header">
 					<button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 						<span className="sr-only">Toggle navigation</span>
@@ -35,49 +58,11 @@ const Navbar = (props) => {
 
 				<div className="collapse navbar-collapse navbar-ex1-collapse">
 					<ul className="nav navbar-nav">
-						<li className="active"><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-						<li className="dropdown" ref={dropdownref} onClick={dropdownOnclick}>
-							<a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Multi Level <b className="caret"></b></a>
-							<ul className="dropdown-menu">
-								<li><a href="#">Level 1</a></li>
-								<li className="dropdown-submenu"> <a tabindex="-1" href="#">More options</a>
-									<ul className="dropdown-menu">
-										<li><a tabindex="-1" href="#">Level 2</a>
-										</li>
-										<li className="dropdown-submenu"> <a href="#">More..</a>
-											<ul className="dropdown-menu">
-												<li><a href="#">Level 3</a>
-												</li>
-												<li><a href="#">Level 3</a>
-												</li>
-												<li className="dropdown-submenu"> <a href="#">More..</a>
-													<ul className="dropdown-menu">
-														<li><a href="#">Level 4</a>
-														</li>
-														<li><a href="#">Level 4</a>
-														</li>
-														<li className="dropdown-submenu"> <a href="#">More..</a>
-															<ul className="dropdown-menu">
-																<li><a href="#">Level 5</a>
-																</li>
-																<li><a href="#">Level 5</a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li><a href="#">Level 2</a>
-										</li>
-										<li><a href="#">Level 2</a>
-										</li>
-									</ul>
-								</li>
-								<li><a href="#">Level 1</a></li>
-							</ul>
-						</li>
+						{
+							items.map((item) => {
+								return <Item {...item} toplevel={true} />
+							})
+						}
 					</ul>
 				</div>
 			</nav>

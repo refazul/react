@@ -425,7 +425,63 @@ export const sidebarmenu_data = {
                         },
                         {
                             "icon": "far fa-dot-circle",
-                            "text": "level 3"
+                            "text": "level 3",
+                            "items": [
+                                {
+                                    "icon": "far fa-dot-circle",
+                                    "text": "level 4"
+                                },
+                                {
+                                    "icon": "far fa-dot-circle",
+                                    "text": "level 4"
+                                },
+                                {
+                                    "icon": "far fa-dot-circle",
+                                    "text": "level 4",
+                                    "items": [
+                                        {
+                                            "icon": "far fa-dot-circle",
+                                            "text": "level 5"
+                                        },
+                                        {
+                                            "icon": "far fa-dot-circle",
+                                            "text": "level 5"
+                                        },
+                                        {
+                                            "icon": "far fa-dot-circle",
+                                            "text": "level 5",
+                                            "items": [
+                                                {
+                                                    "icon": "far fa-dot-circle",
+                                                    "text": "level 6"
+                                                },
+                                                {
+                                                    "icon": "far fa-dot-circle",
+                                                    "text": "level 6"
+                                                },
+                                                {
+                                                    "icon": "far fa-dot-circle",
+                                                    "text": "level 6",
+                                                    "items": [
+                                                        {
+                                                            "icon": "far fa-dot-circle",
+                                                            "text": "level 7"
+                                                        },
+                                                        {
+                                                            "icon": "far fa-dot-circle",
+                                                            "text": "level 7"
+                                                        },
+                                                        {
+                                                            "icon": "far fa-dot-circle",
+                                                            "text": "level 7",
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                            ]
                         },
                     ]
                 },
@@ -460,74 +516,74 @@ export const sidebarmenu_data = {
 
 export const datatable_data = {
 
-    "items" :[
-        {"text1" : "Rendering Engine", "text2" : "Browser", "text3" : "Platform(s)", "text4" : "English Version", "text5" : "Css Grade",},
-        {"text1" : "Gecko", "text2" : "Firefox 1.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.7", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 1.5", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        {"text1" : "Gecko", "text2" : "Firefox 2.0", "text3" : "Win 98+ / OSX.2+", "text4" : "1.8", "text5" : "A",},
-        
+    "items": [
+        { "text1": "Rendering Engine", "text2": "Browser", "text3": "Platform(s)", "text4": "English Version", "text5": "Css Grade", },
+        { "text1": "Gecko", "text2": "Firefox 1.0", "text3": "Win 98+ / OSX.2+", "text4": "1.7", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 1.5", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+        { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
+
     ]
 }
