@@ -9,12 +9,10 @@ app.set('views', './views')
 app.get('/', function (req, res) {
     res.render('home', { title: 'Hey', message: 'Hello there!' })
 })
-app.get('/about', function (req, res) {
-    res.render('simple', { title: 'About Us', message: 'About' })
+app.get('/slick', function (req, res) {
+    res.render('slick', { title: 'Slick Carousel', message: 'Slick Carousel' })
 })
-app.get('/contact', function (req, res) {
-    res.render('simple', { title: 'Contact Us', message: 'Contact' })
-})
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
