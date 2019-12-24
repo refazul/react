@@ -2,20 +2,25 @@ import React, { Component, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Navigation from './navigation';
 
-import { navigation_data, sidebarmenu_data, treenav1_data, datatable_data } from './data';
+import { sidebarmenu_data, datatable_data, megamenu_data } from './data';
 import Sidebarmenu from "./sidebarmenu";
+import Megamenu from "./megamenu";
 import Carousel from "./carousel";
 import Datatable from "./datatable";
-
-
-export default class Main extends Component {
+import Tdsidebarmenu from "./tdsidebarmenu";
+/*
+<img ([^>]+)>
+<img $1 />
+*/
+class Main extends Component {
 	render() {
 		return (
 			<div className="wrapper">
+				<Megamenu {...megamenu_data} />
 				<section className="content-wrapper">
 					<section className="content">
 						<Datatable {...datatable_data} />
-						<Carousel/>
+						<Carousel />
 					</section>
 				</section>
 				<Sidebarmenu {...sidebarmenu_data} />

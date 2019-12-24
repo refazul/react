@@ -1,115 +1,3 @@
-export const navigation_data = {
-
-    "items": [
-        {
-            "text": "Tech and all.com",
-            "items": [
-                {
-                    "text": "Submenu 1",
-                    "items": [
-                        {
-                            "text": "11",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "12",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-                },
-                {
-                    "text": "Submenu 2",
-                    "items": [
-                        {
-                            "text": "21",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "22",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-                },
-                {
-                    "text": "Submenu 3",
-                    "items": [
-                        {
-                            "text": "31",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "32",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-                },
-
-            ]
-        },
-        {
-            "text": "Dropdown Menu 2",
-            "items": [
-                {
-                    "text": "Submenu 1",
-                    "items": [
-                        {
-                            "text": "11",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "12",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-
-                },
-                {
-                    "text": "Submenu 2",
-                    "items": [
-                        {
-                            "text": "21",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "22",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-                },
-                {
-                    "text": "Submenu 3",
-                    "items": [
-                        {
-                            "text": "31",
-                            "link": "https://facebook.com"
-                        },
-                        {
-                            "text": "32",
-                            "link": "https://facebook.com"
-                        }
-                    ]
-                },
-
-            ]
-        },
-        {
-            "text": "Web Designs",
-            "link": "https://facebook.com"
-        },
-        {
-            "text": "LifeStyle",
-            "link": "https://facebook.com"
-        },
-        {
-            "text": "About",
-            "link": "https://facebook.com"
-        },
-        {
-            "text": "Contact",
-            "link": "https://facebook.com"
-        },
-    ]
-}
 export const sidebarmenu_data = {
     "items": [
         {
@@ -585,5 +473,533 @@ export const datatable_data = {
         { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
         { "text1": "Gecko", "text2": "Firefox 2.0", "text3": "Win 98+ / OSX.2+", "text4": "1.8", "text5": "A", },
 
+    ]
+}
+
+
+export const megamenu_data = {
+    "items": [
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "News",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-05.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-05.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Entertainment",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-50.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-08.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-50.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-08.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Fashion",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-21.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-24.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-21.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-24.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Lifestyle",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Technology",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-35.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-34.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Travel",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "Entertainment",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Game",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-35.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-35.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Celebrity",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "Business",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-11.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-11.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Economy",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-35.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-35.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-36.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "Travel",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-39.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-41.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+                {
+                    "text": "Hotels",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-14.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-14.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "Life Style",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-25.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-27.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
+        {
+            "icon": "fas fa-chevron-down",
+            "text": "Video",
+            "items": [
+                {
+                    "text": "All",
+                    "tabitems": [
+                        {
+                            "image": "img/navultra/post-14.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 18",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Feb 12",
+                        },
+                        {
+                            "image": "img/navultra/post-14.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 25",
+                        },
+                        {
+                            "image": "img/navultra/post-10.jpg",
+                            "text": "Donec Metis",
+                            "category": "Music",
+                            "date": "Jan 12",
+                        },
+                    ]
+
+
+
+                },
+            ]
+
+        },
     ]
 }
