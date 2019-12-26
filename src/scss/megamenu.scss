@@ -453,6 +453,13 @@ li.respon-sub-menu > .sub-menu .sub-menu {
   -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   -o-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  &.show {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 .main-menu > li:hover > .sub-mega-menu {
   display: -webkit-box;

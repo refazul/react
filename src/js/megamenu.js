@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import $ from 'jquery';
 // Very important
 
 const Subitem = (props) => {
@@ -51,6 +50,8 @@ const Item = (props) => {
 	var items = props.items || [];
 
 	const [active, setActive] = useState(0);
+	const [x, setX] = useState(false);
+	const [sub_mega_menu_class, set_sub_mega_menu_class] = useState('');
 
 	function onhover(index) {
 		setActive(index);
@@ -59,14 +60,19 @@ const Item = (props) => {
 		//setActive(false);
 	}
 	useEffect(() => {
+		if (x) {
+			set_sub_mega_menu_class('show');
+		} else {
+			set_sub_mega_menu_class('');
+		}
 	});
 	useEffect(() => {
 		// Just Once
 	}, []);
 	return (
-		<li className="mega-menu-item" >
+		<li className="mega-menu-item" onMouseOver={(e) => {setX(true)}} onMouseLeave={(e)=> {setX(false)}} >
 			<a href="category-01.html">{props.text} </a>
-			<div className="sub-mega-menu">
+			<div className={'sub-mega-menu ' + sub_mega_menu_class}>
 				<div className="nav flex-column nav-pills" role="tablist">
 					{
 						items.map((item, index) => {
