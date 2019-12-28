@@ -1,0 +1,20 @@
+/** Carousel **/
+
+.slick-slide {
+	height: auto;
+}
+
+.image {
+	position: relative;
+	.imageinner {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-size: cover;
+	}
+	&:after {
+		display: block;
+		content: '';
+		padding-top: 56.25%;
+	}
+}
