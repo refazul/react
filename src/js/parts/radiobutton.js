@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-
 export const RadioButton = (props) => {
-
-
     return (
         <div class={"form-group"}>
             <div class="form-check">
