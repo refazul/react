@@ -4,7 +4,7 @@ const Text = (props) => {
     var form_class = "form-group"
     var input_class = "";
     var wrap_class = "";
-    var label_class = " col-form-label ";
+    var label_class = "col-form-label ";
     var inputwrap_class = "";
 
     if (props.orientation == 'horizontal') {
