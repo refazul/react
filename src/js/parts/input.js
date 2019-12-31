@@ -12,17 +12,14 @@ const Text = (props) => {
         label_class += " col-sm-4 ";
         inputwrap_class = " col-sm-8 ";
     }
-    if (props.kind == "input_with") {
-
-        if (props.color == "green") {
-            input_class = " is-valid ";
-        }
-        else if (props.color == "orange") {
-            input_class = " is-warning ";
-        }
-        else if (props.color == "red") {
-            input_class = " is-invalid ";
-        }
+    if (props.color == "green") {
+        input_class = " is-valid ";
+    }
+    else if (props.color == "orange") {
+        input_class = " is-warning ";
+    }
+    else if (props.color == "red") {
+        input_class = " is-invalid ";
     }
     return (
         <div class={form_class + wrap_class}>

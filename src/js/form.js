@@ -37,34 +37,24 @@ const Form = (props) => {
 						</div>
 
 						<div class="card-body">
-							<Input type="email" id="exampleInputEmail1" text="Email Address" placeholder="Enter email" keyd={check_email} />
-							<Input type="password" id="exampleInputPassword1" text="Password" placeholder="Password" />
-							<File id="exampleInputFile" text="File input" placeholder="Choose a File" />
-							<CheckBox id="exampleCheck1" text="Check me out " />
+							{
+								props.items.map((item) => {
+									if (item.type == 'text') {
+										return <Input {...item} keyd={check_email} />
+									} else if (item.type == 'password') {
+										return <Input {...item} />
+									} else if (item.type == 'addon') {
+										return <InputAddon {...item} />
+									} else if (item.type == 'checkbox') {
+										return <CheckBox {...item} />
+									} else if (item.type == "radiobutton") {
+										return <RadioButton {...item} />
+									} else if (item.type == "file") {
+										return <File {...item} />
+									}
+								})
+							}
 
-							<InputAddon placeholder="Username" text1="@" />
-							<InputAddon text2=".00" />
-							<InputAddon text1="$" text2=".00" />
-
-							<InputAddon placeholder="Email" fontawesome1="fas fa-envelope" />
-							<InputAddon fontawesome1="fas fa-check" />
-							<InputAddon fontawesome1="fas fa-dollar-sign" fontawesome2="fas fa-ambulance" />
-
-							<Input type="email" id="inputEmail3" text="Email" placeholder="Email" orientation="horizontal" />
-							<Input type="password" id="inputPassword3" text="Password" placeholder="password" orientation="horizontal" />
-							<CheckBox id="exampleCheck2" text="Remember me" orientation="horizontal" />
-
-							<Input kind="input_with" fontawesome="fas fa-check" text="Input with success" for="inputSuccess" id="inputSuccess" placeholder="Enter..." color="green" />
-							<Input kind="input_with" fontawesome="fas fa-bell" text="Input with Warning" for="inputWarning" id="inputWarning" placeholder="Enter..." color="orange" />
-							<Input kind="input_with" fontawesome="far fa-times-circle" text="Input with error" for="inputError" id="inputError" placeholder="Enter..." color="red" />
-
-							<CheckBox id="exampleCheck3" text="Remember me" />
-							<CheckBox id="exampleCheck4" text="Remember me2" />
-							<CheckBox id="exampleCheck5" text="Remember me3" disabled="true" />
-
-							<RadioButton id="exampleCheck6" text="Radio1" name="radio" />
-							<RadioButton id="exampleCheck7" text="Radio2" name="radio" />
-							<RadioButton id="exampleCheck8" text="Radio3" name="radio" />
 						</div>
 
 						<div class="card-footer">

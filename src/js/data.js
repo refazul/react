@@ -1003,3 +1003,135 @@ export const megamenu_data = {
         },
     ]
 }
+
+export const form_data = {
+    "items": [
+        {
+            "type": "text",
+            "text": "Email Address",
+            "placeholder": "Enter Email",
+            "color": "green"
+        },
+        {
+            "type": "password",
+            "text": "Password",
+            "placeholder": "Password",
+        },
+        {
+            "type": "file",
+            "text": "File Input",
+            "placeholder": "Choose File",
+        },
+        {
+            "type": "checkbox",
+            "text": "Check me out",
+            "id": "exampleCheck1",
+        },
+        {
+            "type": "addon",
+            "text1": "@",
+            "placeholder": "Username",
+        },
+        {
+            "type": "addon",
+            "text2": ".00",
+            "placeholder": "",
+        },
+        {
+            "type": "addon",
+            "text1": "$",
+            "text2": ".00",
+            "placeholder": "",
+        },
+        {
+            "type": "addon",
+            "fontawesome1": "fas fa-envelope",
+            "placeholder": "",
+        },
+        {
+            "type": "addon",
+            "fontawesome2": "fas fa-check",
+            "placeholder": "",
+        },
+        {
+            "type": "addon",
+            "fontawesome1": "fas fa-dollar-sign",
+            "fontawesome2": "fas fa-ambulance",
+            "placeholder": "",
+        },
+        {
+            "type": "text",
+            "orientation": "horizontal",
+            "text": "Email",
+            "placeholder": "Email",
+        },
+        {
+            "type": "password",
+            "orientation": "horizontal",
+            "text": "Password",
+            "placeholder": "Password",
+        },
+        {
+            "type": "checkbox",
+            "orientation": "horizontal",
+            "text": "Remember Me",
+            "id": "exampleCheck2",
+        },
+        {
+            "type": "text",
+            "fontawesome" : "fas fa-check",
+            "text": "Input with Success",
+            "placeholder": "Enter...",
+            "color": "green"
+        },
+        {
+            "type": "text",
+            "fontawesome" : "fas fa-bell",
+            "text": "Input with Warning",
+            "placeholder": "Enter...",
+            "color": "orange"
+        },
+        {
+            "type": "text",
+            "fontawesome" : "far fa-times-circle",
+            "text": "Input with Error",
+            "placeholder": "Enter...",
+            "color": "red"
+        },
+        {
+            "type": "checkbox",
+            "text": "Checkbox1",
+            "id": "exampleCheck3",
+        },
+        {
+            "type": "checkbox",
+            "text": "Checkbox2",
+            "id": "exampleCheck4",
+        },
+        {
+            "type": "checkbox",
+            "text": "Checkbox3",
+            "id": "exampleCheck5",
+        },
+        {
+            "type": "radiobutton",
+            "text": "Radio1",
+            "id": "exampleradio1",
+            "name": "radio",
+        },
+        {
+            "type": "radiobutton",
+            "text": "Radio2",
+            "id": "exampleradio2",
+            "name": "radio",
+        },
+        {
+            "type": "radiobutton",
+            "text": "Radio3",
+            "id": "exampleradio3",
+            "name": "radio",
+        },
+
+
+    ]
+}
