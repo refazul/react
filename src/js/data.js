@@ -1135,3 +1135,33 @@ export const form_data = {
 
     ]
 }
+export const tab_data = {
+    "items": [
+        {
+            "header": "Home",
+            "text": "Lorem Ipsum",
+            
+        },
+        
+        {
+            "header": "Profile",
+            "text": "Etiam Odio",
+            
+        },
+        
+        {
+            "header": "Messages",
+            "text": "Lorem Ipsum",
+            
+        },
+        
+        {
+            "header": "Settings",
+            "text": "Etiam Odio",
+            
+        },
+        
+
+
+    ]
+}
