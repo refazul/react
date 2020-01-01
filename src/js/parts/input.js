@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const Text = (props) => {
+export const Input = (props) => {
     var form_class = "form-group"
     var input_class = "";
     var wrap_class = "";
@@ -30,9 +30,5 @@ const Text = (props) => {
         </div>
     )
 }
-export const Input = (props) => {
-    return <Text {...props} />;
-}
-
 
 
