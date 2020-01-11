@@ -440,7 +440,7 @@
   left: 0;
   background-color: transparent;
   cursor: pointer;
-  z-index: 500;
+  z-index: -1;
   border-radius: 0;
   display: none;
 }
@@ -552,7 +552,7 @@
     background-color: #ffffff;
     position: fixed;
     top: 0;
-    left: -310px;
+    right: -310px;
     z-index: 1000;
     width: 300px;
     height: 100%;
@@ -566,7 +566,7 @@
   }
 
   .classy-navbar .classy-menu.menu-on {
-    left: 0;
+    right: 0;
   }
 
   .classynav ul li {
@@ -612,7 +612,7 @@
     bottom: 0;
     background-color: transparent;
     cursor: pointer;
-    z-index: 500;
+    z-index: -1;
     display: block;
   }
 
@@ -744,7 +744,7 @@
   bottom: 0;
   background-color: transparent;
   cursor: pointer;
-  z-index: 500;
+  z-index: -1;
   display: block;
 }
 
