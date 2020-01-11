@@ -4,11 +4,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { sidebarmenu_data, datatable_data, megamenu_data, form_data } from './data';
 import Sidebarmenu from "./sidebarmenu";
-import Megamenu from "./megamenu";
 import Navbar from "./navbar";
 import Carousel from "./carousel";
 import Datatable from "./datatable";
-import Tdsidebarmenu from "./tdsidebarmenu";
 import Form from "./form";
 
 /*

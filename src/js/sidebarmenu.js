@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import $ from 'jquery';
 
 const Menu = (props) => {
@@ -37,15 +38,14 @@ const Menu = (props) => {
 	}
 	return (
 		<li className={li_class_name} ref={containerRef}>
-			<a className="nav-link" href={item.link} onClick={li_onClick}>
+			<Link to={props.link} className="nav-link" onClick={li_onClick}>
 				<i className={"nav-icon " + item.icon}></i>
 				<p>
 					{item.text}
 					<i className={i_class_name}></i>
 					<span className="badge badge-info right">{item.number}</span>
 				</p>
-
-			</a>
+			</Link>
 			<ul className=" nav nav-treeview ">
 				{
 					items.map((item) => {
