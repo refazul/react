@@ -8,14 +8,17 @@ export const sidebarmenu_data = {
                 {
                     "icon": "far fa-circle",
                     "text": "Dashboard v1",
+                    "link": "/carousel"
                 },
                 {
                     "icon": "far fa-circle",
                     "text": "Dashboard v2",
+                    "link": "/datatable"
                 },
                 {
                     "icon": "far fa-circle",
                     "text": "Dashboard v3",
+                    "link": "/"
                 },
             ],
         },
