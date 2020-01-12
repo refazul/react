@@ -39,7 +39,7 @@ const Item = (props) => {
 	}
 	return (
 		<li class={li_class_name} ref={li_ref}>
-			<a href="#" ><Link to={props.link} onClick={onClickA}>{props.text}</Link></a>
+			<Link to={props.link} onClick={onClickA}>{props.text}</Link>
 			<ul class={ul_class_name} ref={ul_ref}>
 				{
 					items.map((item) => {
