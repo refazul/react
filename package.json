@@ -19,6 +19,7 @@
   "dependencies": {
     "datatables.net": "^1.10.20",
     "express": "^4.17.1",
+    "framework7": "^5.4.1",
     "jquery": "^3.4.1",
     "pug": "^2.0.4",
     "react": "^16.11.0",
