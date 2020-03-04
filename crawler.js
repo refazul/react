@@ -12,7 +12,7 @@ function court_scan(param = {}) {
 
         var table = $('form[name="form1"]').siblings('table');
         var tr = $(table).children().children().not(':first-child');
-        $(tr).each(function() {
+        $(tr).each(function () {
             var row = this;
 
             var c0 = $(row).children('td').eq(0);
@@ -21,19 +21,18 @@ function court_scan(param = {}) {
             var c3 = $(row).children('td').eq(3);
 
             var court_name = $(c1).find('strong a').text();
-            var judge_name = extract_judge_name($, $(c2).html());
+            var judge_name = extract_text($, c2);
             var court_link = $(c1).find('strong a').attr('href');
-            var court_id = url.parse(court_link, {parseQueryString: true}).query.court_id;
-            var bench_id = url.parse(court_link, {parseQueryString: true}).query.bench_id;
+            var court_id = url.parse(court_link, { parseQueryString: true }).query.court_id;
+            var bench_id = url.parse(court_link, { parseQueryString: true }).query.bench_id;
 
-            promises.push(cause_scan({court_id, bench_id, date, court_name, judge_name}));
-            return false;
+            promises.push(cause_scan({ court_id, bench_id, date, court_name, judge_name }));
         });
         Promise.all(promises).then((values) => {
             //
             console.log(values[0]);
         });
-        
+
     });
 }
 
@@ -52,7 +51,7 @@ function cause_scan(param = {}) {
             var category = '';
             var table = $('form[name="form1"]').find('table');
             var tr = $(table).children().children();
-            $(tr).each(function() {
+            $(tr).each(function () {
                 var row = this;
 
                 if (sl_row_is($, row)) {
@@ -60,10 +59,10 @@ function cause_scan(param = {}) {
                     category = $(prev).text();
                 } else if (valid_row_is($, row)) {
                     var serial = $(row).children('td').eq(0).text().trim();
-                    var case_number = $(row).children('td').eq(1).text().trim();
-                    var parties = $(row).children('td').eq(2).text().trim();
-        
-                    cause_data.push({serial, case_number, parties, category, court_name, judge_name});
+                    var case_number = $(row).children('td').eq(1).text().replace(/\n/g, "").replace(/Petition/i, "Petition ").trim();
+                    var parties = $(row).children('td').eq(2).text().replace(/vs/i, " vs ").trim();
+
+                    cause_data.push({ serial, case_number, parties, category, court_name, judge_name });
                 }
             });
             resolve(cause_data);
@@ -71,8 +70,15 @@ function cause_scan(param = {}) {
     })
 }
 
-function extract_judge_name($, html) {
-    return html;
+function extract_text($, el) {
+    var text = [];
+    for (var i = 0; i < $(el).contents().length; i++) {
+        var content = $(el).contents()[i];
+        if (content.type == 'text') {
+            text.push(content.data);
+        }
+    }
+    return text.join(' ').replace(/\s\s+/g, ' ').trim();
 }
 function valid_row_is($, row) {
     return parseInt($(row).children('td').eq(0).text()) > 0 ? true : false;
@@ -81,7 +87,7 @@ function sl_row_is($, row) {
     return $(row).children('td').eq(0).text().toLowerCase() == 'sl' ? true : false;
 }
 
-court_scan({date: '03/03/2020'});
+court_scan({ date: '03/03/2020' });
 
 
 
