@@ -11,6 +11,9 @@ import Datatable from "./datatable";
 import Form from "./form";
 import { Toast } from "./parts/toast";
 import { Dropdown } from "./parts/bsdropdown";
+import Law from './law';
+
+var cause_data = window.cause_data;
 
 /*
 <img ([^>]+)>
@@ -46,6 +49,9 @@ const Main = (props) => {
 							</Route>
 							<Route path="/datatable">
 								<Datatable {...datatable_data} />
+							</Route>
+							<Route path="/law">
+								<Law data={cause_data}/>
 							</Route>
 							<Route path="/">
 								<Form {...form_data} />

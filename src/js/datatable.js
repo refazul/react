@@ -27,11 +27,11 @@ const Datatable = (props) => {
 						<table id="example1" class="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
 							<thead>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>Serial</th>
+									<th>Casse Type</th>
+									<th>Case Number</th>
+									<th>Date</th>
+									<th>Category</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -39,11 +39,11 @@ const Datatable = (props) => {
 									props.items.map((item) => {
 										return (
 											<tr>
-												<td>{item.text1}</td>
-												<td>{item.text2}</td>
-												<td>{item.text3}</td>
-												<td>{item.text4}</td>
-												<td>{item.text5}</td>
+												<td>{item.serial}</td>
+												<td>{item.case_type}</td>
+												<td>{item.case_number}</td>
+												<td>{item.date}</td>
+												<td>{item.category}</td>
 											</tr>
 										)
 									})
@@ -52,11 +52,11 @@ const Datatable = (props) => {
 							</tbody>
 							<tfoot>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+								<th>Serial</th>
+									<th>Casse Type</th>
+									<th>Case Number</th>
+									<th>Date</th>
+									<th>Category</th>
 								</tr>
 							</tfoot>
 						</table>

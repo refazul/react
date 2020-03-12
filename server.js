@@ -13,7 +13,7 @@ app.get('/slick', function (req, res) {
 })
 app.get('/law', function (req, res) {
     court_scan({ date: '03/03/2020' }).then((values) => {
-        res.render('table', { title: 'Hey', values: values })
+        res.render('home', { title: 'Law Companion Draft', cause_data: JSON.stringify(values) })
     })
 })
 app.get('*', function (req, res) {

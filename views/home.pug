@@ -14,4 +14,7 @@ html
     link(rel="stylesheet", href="css/style.css")
   body
     div(id="main" class="main")
+    if cause_data
+      script.
+        cause_data = !{cause_data}
     script(src="js/bundle.js")
