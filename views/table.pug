@@ -1,0 +1,26 @@
+doctype html
+
+html(lang='en')
+  body
+    table.table.table-striped
+      tr
+        th Case Type
+        th Case Number
+        th With Numbers
+        th Date
+        th Court Name
+        th Judge_name
+        th Category
+        th Parties
+        
+
+      each n in values
+        tr
+          td= n.case_type
+          td= n.case_number
+          td= n.with_numbers
+          td= n.date
+          td= n.court_name
+          td= n.judge_name
+          td= n.category
+          td= n.parties
