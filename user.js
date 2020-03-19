@@ -30,33 +30,38 @@ function user_data_set(param = {}, callback) {
         }
     });
 }
-function user_authorize(param = {}, callback) {
+async function user_authorized_is_google(param = {}) {
     var user_id = param.user_id;
     var id_token = param.id_token;
-    async function verify() {
+
+    try {
         const ticket = await client.verifyIdToken({
             idToken: id_token,
-            audience: "1067954689582-h93drh2hiqshr8l0vvu73itqsnk1ceuo.apps.googleusercontent.com"
+            audience: "117738736195-o3lbfnbj4fj3689ggeec0u5o2lqqkko9.apps.googleusercontent.com"
         });
         const payload = ticket.getPayload();
         const userid = payload['sub'];
         // If request specified a G Suite domain:
         //const domain = payload['hd'];
-        //console.log(payload);
-
         if (payload.sub == user_id) {
-            callback(true);
-        } else {
-            callback(false);
+            return true;
         }
+    } catch(e) {
+        return false;
     }
-    verify().catch(function() {
-        callback(false);
+    return false;
+}
+function user_authorized_is(param = {}, callback) {
+    var user_id = param.user_id;
+    var id_token = param.id_token;
+
+    user_authorized_is_google({ user_id, id_token }).then(function (user_authorized_is) {
+        callback(user_authorized_is);
     });
 }
 
 module.exports = {
     user_data_get: user_data_get,
     user_data_set: user_data_set,
-    user_authorize: user_authorize
+    user_authorized_is: user_authorized_is
 }
