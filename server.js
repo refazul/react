@@ -16,6 +16,7 @@ var db = mongoose.connection;
 global.db = db;
 
 var court_scan = require('./crawler').court_scan;
+const cause_data_get = require('./cause').cause_data_get;
 const cause_data_set = require('./cause').cause_data_set;
 
 app.get('/slick', function (req, res) {
@@ -26,11 +27,20 @@ app.get('/law', function (req, res) {
         res.render('home', { title: 'Law Companion Draft', cause_data: JSON.stringify(values) })
     })
 })
+app.get('/cause', function (req, res) {
+    var param = {
+        number: req.param('number')
+    }
+    cause_data_get(param, function(data) {
+        // After get
+        res.json(data)
+    });
+  })
 app.post('/cause', function (req, res) {
     var param = {
         number: req.body.number
     }
-    var t = cause_data_set(param, function(data) {
+    cause_data_set(param, function(data) {
         // After save
         res.json(data)
     });

@@ -6,7 +6,10 @@ var CauseSchema = new mongoose.Schema({
 });
 var Cause = mongoose.model('Cause', CauseSchema);
 
-function cause_data_get() {
+function cause_data_get(param = {}, callback) {
+    Cause.find(param, function(err, data) {
+        callback(data);
+    });
 }
 function cause_data_set(param = {}, callback) {
     var c = new Cause({ number: param.number });
