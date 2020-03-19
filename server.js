@@ -27,20 +27,20 @@ app.get('/law', function (req, res) {
         res.render('home', { title: 'Law Companion Draft', cause_data: JSON.stringify(values) })
     })
 })
-app.get('/cause', function (req, res) {
+app.get('/cause/:number', function (req, res) {
     var param = {
-        number: req.param('number')
+        number: req.params.number
     }
-    cause_data_get(param, function(data) {
+    cause_data_get(param, function (data) {
         // After get
         res.json(data)
     });
-  })
+})
 app.post('/cause', function (req, res) {
     var param = {
         number: req.body.number
     }
-    cause_data_set(param, function(data) {
+    cause_data_set(param, function (data) {
         // After save
         res.json(data)
     });
