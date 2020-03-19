@@ -20,6 +20,7 @@ const cause_data_get = require('./cause').cause_data_get;
 const cause_data_set = require('./cause').cause_data_set;
 const user_data_get = require('./user').user_data_get;
 const user_data_set = require('./user').user_data_set;
+const user_authorize = require('./user').user_authorize;
 
 app.get('/slick', function (req, res) {
     res.render('slick', { title: 'Slick Carousel', message: 'Slick Carousel' })
@@ -51,18 +52,25 @@ app.post('/user', function (req, res) {
     var id_token = req.body.id_token;
     var user_id = req.body.user_id;
     var data = req.body.data;
+
     // Verify with google
     // If verified, we will get an id -> sub. It must match with user_id
-
-    // After match
-    var param = {
-        user_id: user_id,
-        data: data
-    }
-    user_data_set(param, function (data) {
-        // After save
-        res.json(data)
-    });
+    user_authorize({user_id, id_token}, function(user_authorized_is) {
+        if (user_authorized_is) {
+            // After match
+            var param = {
+                user_id: user_id,
+                data: data
+            }
+            user_data_set(param, function (data) {
+                // After save
+                res.json(data)
+            });
+        } else {
+            res.json({error: 'unauthorized'})
+        }
+    })
+    
 })
 app.get('/user/:user_id', function (req, res) {
     var user_id = req.params.user_id;
