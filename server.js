@@ -15,12 +15,12 @@ mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useU
 var db = mongoose.connection;
 global.db = db;
 
-var court_scan = require('./crawler').court_scan;
-const cause_data_get = require('./cause').cause_data_get;
-const cause_data_set = require('./cause').cause_data_set;
-const user_data_get = require('./user').user_data_get;
-const user_data_set = require('./user').user_data_set;
-const user_authorized_is = require('./user').user_authorized_is;
+var court_scan = require('./src/nodejs/crawler').court_scan;
+const cause_data_get = require('./model/cause').cause_data_get;
+const cause_data_set = require('./model/cause').cause_data_set;
+const user_data_get = require('./model/user').user_data_get;
+const user_data_set = require('./model/user').user_data_set;
+const user_authorized_is = require('./model/user').user_authorized_is;
 
 app.get('/slick', function (req, res) {
     res.render('slick', { title: 'Slick Carousel', message: 'Slick Carousel' })
