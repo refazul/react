@@ -58,10 +58,10 @@ app.use(function (req, res, next) {
     }
     next();
 });
-app.post('/user', function (req, res) {
+app.post('/user/:user_id', function (req, res) {
     var id_token = req.headers.authorization;
-
-    var user_id = req.body.user_id;
+    
+    var user_id = req.params.user_id;
     var data = req.body.data;
 
     // Verify with google

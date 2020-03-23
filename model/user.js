@@ -10,24 +10,36 @@ var UserSchema = new mongoose.Schema({
 var User = mongoose.model('user', UserSchema);
 
 function user_data_get(param = {}, callback) {
-    User.findOne({ user_id: param.user_id }, function (err, data) {
-        callback(data);
+    User.find({ user_id: param.user_id }, function (err, data) {
+        if (data.length > 0) {
+            // Exists Already
+            User.findOne({ user_id: param.user_id }, function (err, data) {
+                callback(data);
+            });
+        } else {
+            user_create_new(param, callback);
+        }
     });
 }
 function user_data_set(param = {}, callback) {
-    User.findOne({ user_id: param.user_id }, function (err, data) {
+    User.find({ user_id: param.user_id }, function (err, data) {
         if (data.length > 0) {
             // Exists Already
             User.findOneAndUpdate({ user_id: param.user_id }, { data: param.data }, { new: true }, function (err, doc) {
                 callback(doc);
             });
         } else {
-            // New User
-            var u = new User({ user_id: param.user_id, data: param.data });
-            u.save(function (err, data) {
-                callback(data);
-            });
+            user_create_new(param, callback);
         }
+    });
+}
+function user_create_new(param = {}, callback) {
+    var user_id = param.user_id;
+    var data = param.data || '';
+    // New User
+    var u = new User({ user_id, data });
+    u.save(function (err, data) {
+        callback(data);
     });
 }
 async function user_authorized_is_google(param = {}) {
