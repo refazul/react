@@ -48,8 +48,10 @@ const Main = (props) => {
 				onLogout={responseGoogle}
 				onFailure={responseGoogle}
 			/>
-			<Dynamicform initialdata={data} dataupdated={dataupdated}/>
-			<button onClick={save_onClick}>Submit</button>
+			<div className={loggedin ? '' : 'hidden'}>
+				<Dynamicform initialdata={data} dataupdated={dataupdated}/>
+				<button onClick={save_onClick}>Submit</button>
+			</div>
 		</div>
 	);
 }
