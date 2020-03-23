@@ -22,9 +22,18 @@ const useGoogleLogin = ({ onLogin, onLogout, clientId, onFailure }) => {
 		})
 	}, [])
 	function handleSigninSuccess(res) {
+		var profile = res.getBasicProfile();
+		var user_id = profile.getId();
+		var user_name = profile.getName();
+		var user_image = profile.getImageUrl();
+		var user_email = profile.getEmail();
+
+		// The ID token you need to pass to your backend:
+		var user_token = res.getAuthResponse().id_token;
+
 		const basicProfile = res.getBasicProfile();
 		const authResponse = res.getAuthResponse();
-		onLogin({ basicProfile, authResponse })
+		onLogin({ user_id, user_email, user_name, user_image, user_token })
 	}
 	function signIn(e) {
 		const auth2 = window.gapi.auth2.getAuthInstance();

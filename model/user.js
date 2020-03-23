@@ -10,12 +10,12 @@ var UserSchema = new mongoose.Schema({
 var User = mongoose.model('user', UserSchema);
 
 function user_data_get(param = {}, callback) {
-    User.find({ user_id: param.user_id }, function (err, data) {
+    User.findOne({ user_id: param.user_id }, function (err, data) {
         callback(data);
     });
 }
 function user_data_set(param = {}, callback) {
-    User.find({ user_id: param.user_id }, function (err, data) {
+    User.findOne({ user_id: param.user_id }, function (err, data) {
         if (data.length > 0) {
             // Exists Already
             User.findOneAndUpdate({ user_id: param.user_id }, { data: param.data }, { new: true }, function (err, doc) {
@@ -46,7 +46,7 @@ async function user_authorized_is_google(param = {}) {
         if (payload.sub == user_id) {
             return true;
         }
-    } catch(e) {
+    } catch (e) {
         return false;
     }
     return false;

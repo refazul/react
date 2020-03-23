@@ -47,15 +47,26 @@ app.post('/cause', function (req, res) {
         // After save
         res.json(data)
     });
+});
+app.get('/', function (req, res) {
+    res.render('home', { title: 'Hey', message: 'Hello there!' })
 })
+
+app.use(function (req, res, next) {
+    if (!req.headers.authorization) {
+        return res.status(403).json({ error: 'No credentials sent!' });
+    }
+    next();
+});
 app.post('/user', function (req, res) {
-    var id_token = req.body.id_token;
+    var id_token = req.headers.authorization;
+
     var user_id = req.body.user_id;
     var data = req.body.data;
 
     // Verify with google
     // If verified, we will get an id -> sub. It must match with user_id
-    user_authorized_is({user_id, id_token}, function(user_authorized_is) {
+    user_authorized_is({ user_id, id_token }, function (user_authorized_is) {
         if (user_authorized_is) {
             // After match
             var param = {
@@ -67,24 +78,30 @@ app.post('/user', function (req, res) {
                 res.json(data)
             });
         } else {
-            res.json({error: 'unauthorized'})
+            res.json({ error: 'unauthorized' })
         }
     })
-    
+
 })
 app.get('/user/:user_id', function (req, res) {
+    var id_token = req.headers.authorization;
+
     var user_id = req.params.user_id;
 
-    var param = {
-        user_id: user_id
-    }
-    user_data_get(param, function (data) {
-        // After get
-        res.json(data)
-    });
-})
-app.get('*', function (req, res) {
-    res.render('home', { title: 'Hey', message: 'Hello there!' })
+    user_authorized_is({ user_id, id_token }, function (user_authorized_is) {
+        if (user_authorized_is) {
+            // After match
+            var param = {
+                user_id: user_id
+            }
+            user_data_get(param, function (data) {
+                // After get
+                res.json(data)
+            });
+        } else {
+            res.json({ error: 'unauthorized' })
+        }
+    })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
