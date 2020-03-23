@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import Gauth from './gauth';
 import { user_get, user_set } from './user';
+import Dynamicform from './dynamicform';
 
 const Main = (props) => {
 	const [loggedin, setLoggedin] = useState(false);
@@ -34,28 +35,23 @@ const Main = (props) => {
 			setData(user.data);
 		});
 	}
-	function handleChange(e) {
-		var data = e.target.value;
-		setData(data);
+	function dataupdated(update) {
+		setData(update.join(','))
 	}
+	
 	return (
 		<div>
-			<input type="text" className={loggedin ? '' : 'hidden'} defaultValue={data} onChange={handleChange} />
+			Hello {data}
 			<Gauth
 				clientId="117738736195-o3lbfnbj4fj3689ggeec0u5o2lqqkko9.apps.googleusercontent.com"
 				onLogin={responseGoogle}
 				onLogout={responseGoogle}
 				onFailure={responseGoogle}
-			/>,
+			/>
+			<Dynamicform initialdata={data} dataupdated={dataupdated}/>
 			<button onClick={save_onClick}>Submit</button>
-			Hello {data}
 		</div>
 	);
-
-
 }
-
-
-
 
 ReactDOM.render(<Main />, document.querySelector("#main"))
