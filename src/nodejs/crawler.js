@@ -30,7 +30,12 @@ function court_scan(param = {}) {
                 promises.push(cause_scan({ court_id, bench_id, date, court_name, judge_name }));
             });
             Promise.all(promises).then((values) => {
-                resolve(values[0]);
+                for (var i = 0; i < values.length; i++) {
+                    for (var j = 0; j < values[i].length; j++) {
+                        court_data.push(values[i][j]);
+                    }
+                }
+                resolve(court_data);
             });
 
         });

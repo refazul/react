@@ -4,8 +4,8 @@ html(lang='en')
   body
     table.table.table-striped
       tr
-        th Case Type
         th Case Number
+        th Case Type
         th With Numbers
         th Date
         th Court Name
@@ -16,8 +16,8 @@ html(lang='en')
 
       each n in values
         tr
-          td= n.case_type
           td= n.case_number
+          td= n.case_type
           td= n.with_numbers
           td= n.date
           td= n.court_name

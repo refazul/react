@@ -15,9 +15,6 @@ mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useU
 var db = mongoose.connection;
 global.db = db;
 
-var court_scan = require('./src/nodejs/crawler').court_scan;
-const cause_data_get = require('./model/cause').cause_data_get;
-const cause_data_set = require('./model/cause').cause_data_set;
 const user_data_get = require('./model/user').user_data_get;
 const user_data_set = require('./model/user').user_data_set;
 const user_authorized_is = require('./model/user').user_authorized_is;
@@ -26,9 +23,7 @@ app.get('/slick', function (req, res) {
     res.render('slick', { title: 'Slick Carousel', message: 'Slick Carousel' })
 })
 app.get('/law', function (req, res) {
-    court_scan({ date: '03/03/2020' }).then((values) => {
-        res.render('home', { title: 'Law Companion Draft', cause_data: JSON.stringify(values) })
-    })
+   
 })
 app.get('/cause/:number', function (req, res) {
     var param = {
@@ -60,7 +55,7 @@ app.use(function (req, res, next) {
 });
 app.post('/user/:user_id', function (req, res) {
     var id_token = req.headers.authorization;
-    
+
     var user_id = req.params.user_id;
     var data = req.body.data;
 
