@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Gauth from './gauth';
 import { user_get, user_set } from './user';
 import Dynamicform from './dynamicform';
+import {cause_search} from './cause';
 
 const Main = (props) => {
 	const [loggedin, setLoggedin] = useState(false);
@@ -33,6 +34,9 @@ const Main = (props) => {
 
 		user_set({ user_id, user_token, data }, function (user) {
 			setData(user.data);
+		});
+		cause_search({case_numbers: data}).then((results) => {
+		
 		});
 	}
 	function dataupdated(update) {
