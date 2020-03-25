@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import Gauth from './gauth';
 import { user_get, user_set } from './user';
 import Dynamicform from './dynamicform';
-import {cause_search} from './cause';
+import { cause_search } from './cause';
+import Datatable from './datatable';
 
 const Main = (props) => {
 	const [loggedin, setLoggedin] = useState(false);
 	const [data, setData] = useState('');
 	const [udata, setUdata] = useState({});
+	const [result, setResult] = useState([]);
 	useEffect(() => {
 
 	}, []);
@@ -35,14 +37,22 @@ const Main = (props) => {
 		user_set({ user_id, user_token, data }, function (user) {
 			setData(user.data);
 		});
-		cause_search({case_numbers: data}).then((results) => {
-		
+		cause_search({ case_numbers: data }).then((results) => {
+			results = results.map(function (result) {
+				return {
+					case_number: result.case_number,
+					case_type: result.case_type,
+					court_name: result.court_name,
+					judge_name: result.judge_name
+				}
+			})
+			setResult(results);
 		});
 	}
 	function dataupdated(update) {
 		setData(update.join(','))
 	}
-	
+
 	return (
 		<div>
 			Hello {data}
@@ -53,9 +63,10 @@ const Main = (props) => {
 				onFailure={responseGoogle}
 			/>
 			<div className={loggedin ? '' : 'hidden'}>
-				<Dynamicform initialdata={data} dataupdated={dataupdated}/>
+				<Dynamicform initialdata={data} dataupdated={dataupdated} />
 				<button onClick={save_onClick}>Submit</button>
 			</div>
+			<Datatable items={result} />
 		</div>
 	);
 }
