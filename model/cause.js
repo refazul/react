@@ -12,6 +12,11 @@ var CauseSchema = new mongoose.Schema({
 });
 var Cause = mongoose.model('Cause', CauseSchema);
 
+function cause_search(param = {}, callback) {
+    Cause.find(param, function(err, data) {
+        callback(data);
+    });
+}
 function cause_data_get(param = {}, callback) {
     Cause.findOne({ case_number: param.case_number }, function (err, data) {
         //callback(data);
@@ -43,6 +48,7 @@ function cause_data_set(param = {}) {
     });
 }
 module.exports = {
+    cause_search: cause_search,
     cause_data_get: cause_data_get,
     cause_data_set: cause_data_set,
 }

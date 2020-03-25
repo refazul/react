@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useU
 var db = mongoose.connection;
 global.db = db;
 
+const cause_search = require('./model/cause').cause_search;
 const user_data_get = require('./model/user').user_data_get;
 const user_data_set = require('./model/user').user_data_set;
 const user_authorized_is = require('./model/user').user_authorized_is;
@@ -24,6 +25,13 @@ app.get('/slick', function (req, res) {
 })
 app.get('/law', function (req, res) {
    
+})
+app.post('/search', function (req, res) {
+    var case_number = req.body.case_number;
+
+    cause_search({case_number}, function (results) {
+        res.json(results);
+    });
 })
 app.get('/cause/:number', function (req, res) {
     var param = {
