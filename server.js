@@ -27,9 +27,9 @@ app.get('/law', function (req, res) {
    
 })
 app.post('/search', function (req, res) {
-    var case_number = req.body.case_number;
-
-    cause_search({case_number}, function (results) {
+    var case_numbers = req.body.case_numbers;
+    //var case_number = '28/2020,4948/2004,2413/2016';
+    cause_search({case_numbers}, function (results) {
         res.json(results);
     });
 })

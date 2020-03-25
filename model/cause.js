@@ -13,7 +13,13 @@ var CauseSchema = new mongoose.Schema({
 var Cause = mongoose.model('Cause', CauseSchema);
 
 function cause_search(param = {}, callback) {
-    Cause.find(param, function(err, data) {
+    var case_numbers = param.case_numbers || '';
+    case_numbers = case_numbers.split(',');
+    case_numbers = case_numbers.map((function (el) {
+        return { case_number: el }
+    }));
+
+    Cause.find({ $or: case_numbers }, function (err, data) {
         callback(data);
     });
 }
