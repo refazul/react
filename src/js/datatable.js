@@ -14,6 +14,30 @@ const Datatable = (props) => {
 		// Just Once
 		$(tableref.current).DataTable();
 	}, []);
+	function x(items = []) {
+		if (items.length > 0) {
+			var item = items[0];
+			var keys = [];
+			for (var i in item) {
+				keys.push(i);
+			}
+			keys = keys.map(function (key) {
+				return <th>{key}</th>;
+			})
+			return keys;
+		}
+		return <th></th>;
+	}
+	function y(item) {
+		var keys = [];
+		for (var i in item) {
+			keys.push(i);
+		}
+		keys = keys.map(function (key) {
+			return <td>{item[key]}</td>;
+		})
+		return keys;
+	}
 	return (
 		<div className="row">
 			<div className="col-12">
@@ -27,11 +51,7 @@ const Datatable = (props) => {
 						<table id="example1" class="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
 							<thead>
 								<tr>
-									<th>Serial</th>
-									<th>Casse Type</th>
-									<th>Case Number</th>
-									<th>Date</th>
-									<th>Category</th>
+									{x(props.items)}
 								</tr>
 							</thead>
 							<tbody>
@@ -39,24 +59,15 @@ const Datatable = (props) => {
 									props.items.map((item) => {
 										return (
 											<tr>
-												<td>{item.serial}</td>
-												<td>{item.case_type}</td>
-												<td>{item.case_number}</td>
-												<td>{item.date}</td>
-												<td>{item.category}</td>
+												{y(item)}
 											</tr>
 										)
 									})
 								}
-
 							</tbody>
 							<tfoot>
 								<tr>
-								<th>Serial</th>
-									<th>Casse Type</th>
-									<th>Case Number</th>
-									<th>Date</th>
-									<th>Category</th>
+									{x(props.items)}
 								</tr>
 							</tfoot>
 						</table>
