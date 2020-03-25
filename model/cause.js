@@ -19,34 +19,28 @@ function cause_data_get(param = {}, callback) {
 }
 function cause_data_set(param = {}) {
     return new Promise((resolve, reject) => {
-        Cause.find({ case_number: param.case_number }, function (err, data) {
+        Cause.find({ case_number: param.case_number, case_type: param.case_type }, function (err, data) {
             if (data.length > 0) {
                 // Exists Already
-                Cause.findOneAndUpdate({ case_number: param.case_number }, param, { new: true }, function (err, doc) {
+                Cause.findOneAndUpdate({ case_number: param.case_number, case_type: param.case_type }, param, { new: true }, function (err, doc) {
                     resolve(doc);
                 });
             } else {
-                return cause_create_new(param);
+                var case_number = param.case_number;
+                var case_type = param.case_type || '';
+                var case_date = param.case_date || '';
+                var court_name = param.court_name || '';
+                var judge_name = param.judge_name || '';
+                var category = param.category || '';
+                var parties = param.parties || '';
+                // New User
+                var u = new Cause({ case_number, case_type, case_date, court_name, judge_name, category, parties });
+                u.save(function (err, data) {
+                    resolve(data);
+                });
             }
         });
     });
-}
-function cause_create_new(param = {}) {
-    return new Promise((resolve, reject) => {
-        var case_number = param.case_number;
-        var case_type = param.case_type || '';
-        var case_date = param.case_date || '';
-        var court_name = param.court_name || '';
-        var judge_name = param.judge_name || '';
-        var category = param.category || '';
-        var parties = param.parties || '';
-        // New User
-        var u = new Cause({ case_number, case_type, case_date, court_name, judge_name, category, parties });
-        u.save(function (err, data) {
-            resolve(data);
-        });
-    })
-    
 }
 module.exports = {
     cause_data_get: cause_data_get,

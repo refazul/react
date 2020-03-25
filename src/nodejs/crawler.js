@@ -37,7 +37,6 @@ function court_scan(param = {}) {
                 }
                 resolve(court_data);
             });
-
         });
     });
 }
