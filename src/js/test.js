@@ -6,6 +6,13 @@ import Dynamicform from './dynamicform';
 import { cause_search } from './cause';
 import Datatable from './datatable';
 
+const columns = [
+	{ title: 'case number' },
+	{ title: 'case type' },
+	{ title: 'court name' },
+	{ title: 'judge name' }
+];
+
 const Main = (props) => {
 	const [loggedin, setLoggedin] = useState(false);
 	const [data, setData] = useState('');
@@ -39,13 +46,8 @@ const Main = (props) => {
 		});
 		cause_search({ case_numbers: data }).then((results) => {
 			results = results.map(function (result) {
-				return {
-					case_number: result.case_number,
-					case_type: result.case_type,
-					court_name: result.court_name,
-					judge_name: result.judge_name
-				}
-			})
+				return [result.case_number, result.case_type, result.court_name, result.judge_name];
+			});
 			setResult(results);
 		});
 	}
@@ -66,7 +68,7 @@ const Main = (props) => {
 				<Dynamicform initialdata={data} dataupdated={dataupdated} />
 				<button onClick={save_onClick}>Submit</button>
 			</div>
-			<Datatable items={result} />
+			<Datatable data={result} columns={columns} />
 		</div>
 	);
 }
