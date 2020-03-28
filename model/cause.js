@@ -17,14 +17,23 @@ var Cause = mongoose.model('Cause', CauseSchema);
 
 function cause_search(param = {}, callback) {
     var case_numbers = param.case_numbers || '';
-    case_numbers = case_numbers.split(',');
+    case_numbers = case_numbers.split(',').filter(function (el) {
+        return el != '';
+    });
     case_numbers = case_numbers.map((function (el) {
         return { case_number: el }
     }));
 
-    Cause.find({ $or: case_numbers }, function (err, data) {
-        callback(data);
-    });
+    if (case_numbers.length < 1) {
+        Cause.find({}, function (err, data) {
+            callback(data);
+        });
+    }
+    else {
+        Cause.find({ $or: case_numbers }, function (err, data) {
+            callback(data);
+        });
+    }
 }
 function cause_data_get(param = {}, callback) {
     Cause.findOne({ case_number: param.case_number }, function (err, data) {

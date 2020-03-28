@@ -1,10 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 // Very important
 $.DataTable = require('datatables.net');
 
 const Datatable = (props) => {
+	const columnDefs = [
+		{
+			targets: -1,
+			createdCell: (td, cellData, rowData, row, col) =>
+				ReactDOM.render(
+					<button
+						onClick={() => this.handletableclick(row)}>
+						data
+				</button>, td),
+		}
+	]
 	const [count, setCount] = useState(0);
 	const tableref = useRef(null);
 	var table = null;
@@ -20,7 +32,8 @@ const Datatable = (props) => {
 		table = $(tableref.current).DataTable({
 			destroy: true,
 			data: props.data,
-			columns: props.columns
+			columns: props.columns,
+			columnDefs: columnDefs
 		});
 	}, [props.data]);
 	return (

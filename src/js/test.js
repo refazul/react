@@ -6,13 +6,15 @@ import Dynamicform from './dynamicform';
 import { cause_search } from './cause';
 import Datatable from './datatable';
 
+
 const columns = [
 	{ title: 'Serial' },
 	{ title: 'Date' },
 	{ title: 'case number' },
 	{ title: 'case type' },
 	{ title: 'court name' },
-	{ title: 'judge name' }
+	{ title: 'judge name' },
+	{ title: '' },
 ];
 
 const Main = (props) => {
@@ -21,8 +23,14 @@ const Main = (props) => {
 	const [udata, setUdata] = useState({});
 	const [result, setResult] = useState([]);
 	useEffect(() => {
-
+		cause_search({}).then((results) => {
+			results = results.map(function (result) {
+				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name, ''];
+			});
+			setResult(results);
+		});
 	}, []);
+
 	function responseGoogle(response) {
 		if (response && response.user_id && response.user_token) {
 			setLoggedin(true);
@@ -48,7 +56,7 @@ const Main = (props) => {
 		});
 		cause_search({ case_numbers: data }).then((results) => {
 			results = results.map(function (result) {
-				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name];
+				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name, ''];
 			});
 			setResult(results);
 		});
