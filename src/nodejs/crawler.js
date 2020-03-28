@@ -74,7 +74,7 @@ function cause_scan(param = {}) {
                     var with_numbers = extract_nth_text($, c1, 2).match(/[0-9 ]+\/[0-9 ]+/gi);
                     var parties = $(c2).text().replace(/vs/i, " vs ").trim();
 
-                    cause_data.push({ serial, case_type, case_number, with_numbers, date, court_name, judge_name, category, parties });
+                    cause_data.push({ serial, case_type, case_number, with_numbers, case_date: date, court_name, judge_name, category, parties });
                 }
             });
             resolve(cause_data);
