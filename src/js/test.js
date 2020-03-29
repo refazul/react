@@ -1,11 +1,13 @@
 import React, { Component, useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
+
 import Gauth from './gauth';
-import { user_get, user_set } from './user';
 import Dynamicform from './dynamicform';
-import { cause_search } from './cause';
 import Datatable from './datatable';
 
+import { user_get, user_set } from './user';
+import { cause_search } from './cause';
 
 const columns = [
 	{ title: 'Serial' },
@@ -66,20 +68,35 @@ const Main = (props) => {
 	}
 
 	return (
-		<div>
-			Hello {data}
-			<Gauth
-				clientId="117738736195-o3lbfnbj4fj3689ggeec0u5o2lqqkko9.apps.googleusercontent.com"
-				onLogin={responseGoogle}
-				onLogout={responseGoogle}
-				onFailure={responseGoogle}
-			/>
-			<div className={loggedin ? '' : 'hidden'}>
-				<Dynamicform initialdata={data} dataupdated={dataupdated} />
-				<button onClick={save_onClick}>Submit</button>
+		<Router>
+			<div className="wrapper">
+				<Switch>
+					<Route path="/path1">
+
+					</Route>
+					<Route path="/path2">
+
+					</Route>
+					<Route path="/path3">
+
+					</Route>
+					<Route path="/">
+						Hello {data}
+						<Gauth
+							clientId="117738736195-o3lbfnbj4fj3689ggeec0u5o2lqqkko9.apps.googleusercontent.com"
+							onLogin={responseGoogle}
+							onLogout={responseGoogle}
+							onFailure={responseGoogle}
+						/>
+						<div className={loggedin ? '' : 'hidden'}>
+							<Dynamicform initialdata={data} dataupdated={dataupdated} />
+							<button onClick={save_onClick}>Submit</button>
+						</div>
+						<Datatable data={result} columns={columns} />
+					</Route>
+				</Switch>
 			</div>
-			<Datatable data={result} columns={columns} />
-		</div>
+		</Router>
 	);
 }
 

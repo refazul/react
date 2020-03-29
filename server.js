@@ -24,12 +24,12 @@ app.get('/slick', function (req, res) {
     res.render('slick', { title: 'Slick Carousel', message: 'Slick Carousel' })
 })
 app.get('/law', function (req, res) {
-   
+
 })
 app.post('/search', function (req, res) {
     var case_numbers = req.body.case_numbers;
     //var case_number = '28/2020,4948/2004,2413/2016';
-    cause_search({case_numbers}, function (results) {
+    cause_search({ case_numbers }, function (results) {
         res.json(results);
     });
 })
@@ -52,7 +52,7 @@ app.post('/cause', function (req, res) {
     });
 });
 app.get('/', function (req, res) {
-    res.render('home', { title: 'Hey', message: 'Hello there!' })
+    res.render('home', { title: 'Law Companion' })
 })
 
 app.use(function (req, res, next) {

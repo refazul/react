@@ -38,7 +38,7 @@ const Datatable = (props) => {
 	}, [props.data]);
 	return (
 		<div style={{ backgroundColor: "white" }}>
-			<table id="example1" class="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
+			<table id="example1" className="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
 
 			</table>
 		</div>
