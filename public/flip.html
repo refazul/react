@@ -1,0 +1,441 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Touch-enabled Book/Page Flip Effect Example</title>
+    <style>
+        #jquery-script-menu {
+            position: absolute;
+            height: 90px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-top: 5px solid #316594;
+            background: #fff;
+            -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+            -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+            z-index: 999999;
+            padding: 10px 0;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        .jquery-script-center {
+            width: 960px;
+            margin: 0 auto
+        }
+
+        .jquery-script-center ul {
+            width: 212px;
+            float: left;
+            line-height: 45px;
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .jquery-script-center a {
+            text-decoration: none
+        }
+
+        .jquery-script-ads {
+            width: 728px;
+            height: 90px;
+            float: right
+        }
+
+        .jquery-script-clear {
+            clear: both;
+            height: 0
+        }
+
+        #carbonads {
+            display: block;
+            overflow: hidden;
+            max-width: 728px;
+            position: relative;
+            font-size: 22px;
+            box-sizing: content-box
+        }
+
+        #carbonads>span {
+            display: block
+        }
+
+        #carbonads a {
+            color: #4078c0;
+            text-decoration: none
+        }
+
+        #carbonads a:hover {
+            color: #3664A3
+        }
+
+        .carbon-wrap {
+            display: flex;
+            align-items: center
+        }
+
+        .carbon-img {
+            display: block;
+            margin: 0;
+            line-height: 1
+        }
+
+        .carbon-img img {
+            display: block;
+            height: 90px;
+            width: auto
+        }
+
+        .carbon-text {
+            display: block;
+            padding: 0 1em;
+            line-height: 1.35;
+            text-align: left
+        }
+
+        .carbon-poweredby {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 6px 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            font-weight: 600;
+            font-size: 8px;
+            border-top-left-radius: 4px;
+            line-height: 1;
+            color: #aaa !important
+        }
+
+        @media only screen and (min-width:320px) and (max-width:759px) {
+            .carbon-text {
+                font-size: 14px
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="scene">
+        <article class="book">
+            <section class="page active">
+                <div class="front">
+                    <h1>Touch-enabled Book/Page Flip Effect Example</h1>
+                    <div id="carbon-block"></div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id interdum elit, quis aliquam
+                        eros. Sed vitae lectus viverra, dignissim tortor non, vestibulum dui. Sed tempus blandit urna
+                        non mattis. Nullam faucibus ligula sit amet felis accumsan laoreet. In hac habitasse platea
+                        dictumst. Mauris sed pretium nunc. Morbi vehicula purus ac mauris convallis, vitae faucibus nisi
+                        fringilla. Aenean faucibus diam cursus lacinia eleifend. Curabitur ac semper ante, eget suscipit
+                        velit. Nam tortor massa, ultricies a justo vel, semper euismod sem. Class aptent taciti sociosqu
+                        ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc tincidunt vel massa varius
+                        lacinia.
+                    </p>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+                <div class="back">
+                    <h1>– 1 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+            </section>
+            <section class="page">
+                <div class="front">
+                    <h1>– 2 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+                <div class="back">
+                    <h1>– 3 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+            </section>
+            <section class="page">
+                <div class="front">
+                    <h1>– 4 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+                <div class="back">
+                    <h1>– 5 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+            </section>
+            <section class="page">
+                <div class="front">
+                    <h1>– 6 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+                <div class="back">
+                    <h1>– 7 –</h1>
+                    <p>
+                        Nam at consectetur leo. Praesent sed nibh id est elementum imperdiet. Vestibulum neque arcu,
+                        ornare nec tellus quis, pretium tempus dui. Sed non leo mi. Vestibulum porttitor, diam sit amet
+                        vestibulum viverra, leo nulla cursus ligula, efficitur consequat arcu magna ac libero. Nulla
+                        enim lacus, interdum a est vel, faucibus suscipit nisi. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis
+                        parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus. Praesent et metus malesuada, auctor nibh et, malesuada nulla. Sed quis ultrices quam.
+                        Donec facilisis, arcu id blandit ullamcorper, ligula elit aliquam dolor, sed gravida mi leo sed
+                        purus. Maecenas in lectus arcu. Duis ut scelerisque nunc. Sed eget convallis sapien. Praesent
+                        vitae ex pellentesque, tristique orci consequat, euismod eros.
+                    </p>
+                </div>
+            </section>
+            <section class="page">
+                <div class="front">
+                    <h1>– 8 –</h1>
+                    <p>
+                        Sehen Sie, Webstandards sind das Regelwerk, auf dem Webseiten aufbauen. So gibt es Regeln für
+                        HTML, CSS, JavaScript oder auch XML; Worte, die Sie vielleicht schon einmal von Ihrem Entwickler
+                        gehört haben. Diese Standards sorgen dafür, dass alle Beteiligten aus einer Webseite den größten
+                        Nutzen ziehen.
+                    </p>
+                    <p>
+                        Im Gegensatz zu früheren Webseiten müssen wir zum Beispiel nicht mehr zwei verschiedene
+                        Webseiten für den Internet Explorer und einen anderen Browser programmieren. Es reicht eine
+                        Seite, die - richtig angelegt - sowohl auf verschiedenen Browsern im Netz funktioniert, aber
+                        ebenso gut für den Ausdruck oder
+                    </p>
+                </div>
+                <div class="back">
+                    <h1>– 9 –</h1>
+                    <p>
+                        Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen,
+                        spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel?
+                        Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte!
+                    </p>
+                    <p>
+                        Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und
+                        die stählerne Acht um seine Handgelenke würde gleich zuschnappen? Er konnte die Aufforderung
+                        stehen zu bleiben schon hören. Gehetzt sah er sich um.
+                    </p>
+                </div>
+            </section>
+
+        </article>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/jquery-hammerjs@2.0.0/jquery.hammer.min.js'></script>
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: black;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .scene {
+            width: 45%;
+            height: 90%;
+            margin: 5% 5% 5% 50%;
+
+            perspective: 1000px;
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            transform-style: preserve-3d;
+        }
+
+        .page {
+            cursor: pointer;
+            position: absolute;
+            color: black;
+            width: 100%;
+            height: 100%;
+
+            transition: 1.5s transform;
+            transform-style: preserve-3d;
+            transform-origin: left center;
+        }
+
+        .front,
+        .back {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+            padding: 10% 5% 5%;
+            box-sizing: border-box;
+
+            backface-visibility: hidden;
+            background: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#FFFFFF), to(#CCCCCC));
+            background: linear-gradient(to bottom right, #fff, #ccc);
+        }
+
+        .back {
+            transform: rotateX(180deg);
+        }
+
+        .page.active {
+            z-index: 1;
+        }
+
+        .page.flipped {
+            transform: rotateX(-180deg);
+        }
+
+        .page.flipped:last-of-type {
+            z-index: 1;
+        }
+
+        p {
+            text-indent: 1em;
+            line-height: 1.7;
+        }
+
+        .qr {
+            margin: 50px auto;
+            max-width: 50%;
+        }
+
+        .qr img {
+            display: block;
+        }
+
+
+        /* iPads (portrait) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            .scene {
+                width: 90%;
+                height: 90%;
+                margin: 5%;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        var currentPage = 0;
+
+        $('.book')
+            .on('click', '.active', nextPage)
+            .on('click', '.flipped', prevPage);
+
+        $('.book').hammer().on("swipeup", nextPage);
+        $('.book').hammer().on("swipedown", prevPage);
+
+        function prevPage() {
+
+            $('.flipped')
+                .last()
+                .removeClass('flipped')
+                .addClass('active')
+                .siblings('.page')
+                .removeClass('active');
+        }
+        function nextPage() {
+
+            $('.active')
+                .removeClass('active')
+                .addClass('flipped')
+                .next('.page')
+                .addClass('active')
+                .siblings();
+
+        }
+    </script>
+
+</body>
+
+</html>
