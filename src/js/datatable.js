@@ -9,12 +9,14 @@ const Datatable = (props) => {
 	const columnDefs = [
 		{
 			targets: -1,
-			createdCell: (td, cellData, rowData, row, col) =>
-				ReactDOM.render(
-					<button
-						onClick={() => this.handletableclick(row)}>
-						data
-				</button>, td),
+			createdCell: (td, cellData, rowData, row, col, full) => {
+				/*
+				if (cellData == '') {
+					$(td).css('background-color', 'red')
+				}
+				*/
+				ReactDOM.render(<button onClick={(e) => {props.addOnclick(rowData)}}>Add</button>, td);
+			}
 		}
 	]
 	const [count, setCount] = useState(0);

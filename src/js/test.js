@@ -66,6 +66,9 @@ const Main = (props) => {
 	function dataupdated(update) {
 		setData(update.join(','))
 	}
+	function addOnclick(data) {
+		console.log(data);
+	}
 
 	return (
 		<Router>
@@ -89,10 +92,9 @@ const Main = (props) => {
 							onFailure={responseGoogle}
 						/>
 						<div className={loggedin ? '' : 'hidden'}>
-							<Dynamicform initialdata={data} dataupdated={dataupdated} />
 							<button onClick={save_onClick}>Submit</button>
 						</div>
-						<Datatable data={result} columns={columns} />
+						<Datatable data={result} columns={columns} addOnclick={addOnclick} />
 					</Route>
 				</Switch>
 			</div>
