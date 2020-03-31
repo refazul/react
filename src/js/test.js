@@ -10,13 +10,12 @@ import { user_get, user_set } from './user';
 import { cause_search } from './cause';
 
 const columns = [
-	{ title: 'Serial' },
-	{ title: 'Date' },
-	{ title: 'case number' },
-	{ title: 'case type' },
-	{ title: 'court name' },
-	{ title: 'judge name' },
-	{ title: '' },
+	{ id: 'serial', title: 'Serial' },
+	{ id: 'case_date', title: 'Date' },
+	{ id: 'case_number', title: 'case number' },
+	{ id: 'case_type', title: 'case type' },
+	{ id: 'court_name', title: 'court name' },
+	{ id: 'judge_name', title: 'judge name' }
 ];
 
 const Main = (props) => {
@@ -26,9 +25,11 @@ const Main = (props) => {
 	const [result, setResult] = useState([]);
 	useEffect(() => {
 		cause_search({}).then((results) => {
+			/*
 			results = results.map(function (result) {
-				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name, ''];
+				return { serial: result.serial, case_date: result.case_date, case_number: result.case_number, case_type: result.case_type, court_name: result.court_name, judge_name: result.judge_name };
 			});
+			*/
 			setResult(results);
 		});
 	}, []);
@@ -67,7 +68,16 @@ const Main = (props) => {
 	}
 	function addClick(rowData) {
 		console.log('addClick', rowData);
-		setData(values => values.split(',').concat(rowData[2]).join(','));
+		//setData(values => values.split(',').concat(rowData[2]).join(','));
+		setResult(results => results.map(function (result) {
+			if (result['_id'] == rowData['_id']) {
+				if (result['selected'] == 'yes') {
+					return { ...result, 'selected': 'no' }
+				}
+				return { ...result, 'selected': 'yes' }
+			}
+			return result;
+		}));
 	}
 
 	return (
@@ -94,7 +104,7 @@ const Main = (props) => {
 						<div className={loggedin ? '' : 'hidden'}>
 							<button onClick={save_onClick}>Submit</button>
 						</div>
-						<Datatable data={result} columns={columns} addClick={addClick} initialdata={data.split(',').filter(function (el) { return el != '' })} />
+						<Datatable items={result} columns={columns} addClick={addClick} />
 					</Route>
 				</Switch>
 			</div>

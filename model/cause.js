@@ -24,16 +24,19 @@ function cause_search(param = {}, callback) {
         return { case_number: el }
     }));
 
-    if (case_numbers.length < 1) {
-        Cause.find({}, function (err, data) {
-            callback(data);
-        });
+    var offset = param.offset || 0;
+    var limit = param.limit || 500;
+    var filter = {};
+    if (case_numbers.length > 0) {
+        filter = { $or: case_numbers };
     }
-    else {
-        Cause.find({ $or: case_numbers }, function (err, data) {
-            callback(data);
-        });
-    }
+    var projection = 'serial case_date case_number case_type court_name judge_name';//null
+    var options = {skip: offset, limit: limit, sort: 'serial'};
+    
+    // Check for more https://mongoosejs.com/docs/api.html#model_Model.find
+    Cause.find(filter, projection, options, function (err, data) {
+        callback(data);
+    });
 }
 function cause_data_get(param = {}, callback) {
     Cause.findOne({ case_number: param.case_number }, function (err, data) {
