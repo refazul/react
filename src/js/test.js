@@ -23,21 +23,15 @@ const Main = (props) => {
 	const [udata, setUdata] = useState({});
 	const [result, setResult] = useState([]);
 	useEffect(() => {
-		cause_search({}).then((results) => {
-			/*
-			results = results.map(function (result) {
-				return { serial: result.serial, case_date: result.case_date, case_number: result.case_number, case_type: result.case_type, court_name: result.court_name, judge_name: result.judge_name };
-			});
-			*/
-			setResult(results);
-		});
+
 	}, []);
 	useEffect(() => {
+		console.log('result changed', result.length);
 		var new_data = result.filter(function (r) {
 			return r.selected == 'yes';
 		});
 		new_data = new_data.map(function (r) {
-			return { case_type: r.case_type, case_number: r.case_number }
+			return { _id: r._id, case_type: r.case_type, case_number: r.case_number }
 		});
 		user_data_set(new_data);
 	}, [result])
@@ -51,12 +45,35 @@ const Main = (props) => {
 			user_get({ user_id, user_token }, function (user) {
 				setUdata({ user_id, user_token });
 				setData(user.data || '');
+				result_data_set(user.data);
 			});
 		} else {
 			setLoggedin(false);
 			setUdata({});
 			setData('');
 		}
+	}
+	function result_data_set(user_data) {
+		var user_data_ids = [];
+		try {
+			user_data = JSON.parse(user_data);
+			user_data_ids = user_data.map(function (r) {
+				return r['_id'];
+			});
+		} catch (e) { }
+		user_data_ids = user_data_ids.filter(function (r) {
+			return typeof r === 'string' && r.length > 1
+		});
+		console.log('user_data_ids', user_data_ids);
+		cause_search({}).then((results) => {
+			results = results.map(function (result) {
+				if (user_data_ids.indexOf(result['_id']) > -1) {
+					return { ...result, 'selected': 'yes' };
+				}
+				return { ...result, 'selected': 'no' };
+			});
+			setResult(results);
+		});
 	}
 	function user_data_set(new_data) {
 		var user_id = udata.user_id;
@@ -79,11 +96,11 @@ const Main = (props) => {
 		setResult(results => results.map(function (result) {
 			if (result['_id'] == rowData['_id']) {
 				if (result['selected'] == 'yes') {
-					return { ...result, 'selected': 'no' }
+					return { ...result, 'selected': 'no' };
 				}
-				return { ...result, 'selected': 'yes' }
+				return { ...result, 'selected': 'yes' };
 			}
-			return result;
+			return { ...result };
 		}));
 	}
 

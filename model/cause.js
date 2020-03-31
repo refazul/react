@@ -30,7 +30,7 @@ function cause_search(param = {}, callback) {
     if (case_numbers.length > 0) {
         filter = { $or: case_numbers };
     }
-    var projection = 'serial case_date case_number case_type court_name judge_name';//null
+    var projection = '_id serial case_date case_number case_type court_name judge_name';//null
     var options = {skip: offset, limit: limit, sort: 'serial'};
     
     // Check for more https://mongoosejs.com/docs/api.html#model_Model.find
