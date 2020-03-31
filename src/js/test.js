@@ -65,8 +65,9 @@ const Main = (props) => {
 		});
 		*/
 	}
-	function dataupdated(update) {
-		setData(update.join(','))
+	function addClick(rowData) {
+		console.log('addClick', rowData);
+		setData(values => values.split(',').concat(rowData[2]).join(','));
 	}
 
 	return (
@@ -93,7 +94,7 @@ const Main = (props) => {
 						<div className={loggedin ? '' : 'hidden'}>
 							<button onClick={save_onClick}>Submit</button>
 						</div>
-						<Datatable data={result} columns={columns} dataupdated={dataupdated} initialdata={data.split(',').filter(function (el) { return el != '' })} />
+						<Datatable data={result} columns={columns} addClick={addClick} initialdata={data.split(',').filter(function (el) { return el != '' })} />
 					</Route>
 				</Switch>
 			</div>

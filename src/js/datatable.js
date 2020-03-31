@@ -6,7 +6,7 @@ import $ from 'jquery';
 $.DataTable = require('datatables.net');
 
 const Datatable = (props) => {
-	var table = null;
+	const tableref = useRef(null);
 	const [values, setValues] = useState([]);
 	const columnDefs = [
 		{
@@ -22,10 +22,7 @@ const Datatable = (props) => {
 		}
 	];
 	function addClick(rowData) {
-		let new_values = values;
-		new_values.push(rowData[2]);
-		setValues(new_values);
-		props.dataupdated(new_values);
+		props.addClick(rowData);
 	}
 
 	useEffect(() => {
@@ -36,7 +33,7 @@ const Datatable = (props) => {
 		if (props.data.length < 1) {
 			return;
 		}
-		table = $(tableref.current).DataTable({
+		$(tableref.current).DataTable({
 			destroy: true,
 			data: props.data,
 			columns: props.columns,
@@ -44,11 +41,12 @@ const Datatable = (props) => {
 		});
 	}, [props.data]);
 	useEffect(() => {
+		console.log('initdata changed', props.initialdata);
 		setValues(props.initialdata);
 	}, [props.initialdata]);
 	return (
 		<div style={{ backgroundColor: "white" }}>
-			<table id="example1" className="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
+			<table id="example1" className="table table-bordered table-striped" ref={tableref}>
 
 			</table>
 		</div>
