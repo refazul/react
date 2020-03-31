@@ -31,7 +31,7 @@ const Main = (props) => {
 			return r.selected == 'yes';
 		});
 		new_data = new_data.map(function (r) {
-			return { _id: r._id, case_type: r.case_type, case_number: r.case_number }
+			return { case_type: r.case_type, case_number: r.case_number }
 		});
 		user_data_set(new_data);
 	}, [result])
@@ -56,18 +56,22 @@ const Main = (props) => {
 	function result_data_set(user_data) {
 		var user_data_ids = [];
 		try {
-			user_data = JSON.parse(user_data);
-			user_data_ids = user_data.map(function (r) {
-				return r['_id'];
-			});
+			user_data_ids = JSON.parse(user_data);
 		} catch (e) { }
 		user_data_ids = user_data_ids.filter(function (r) {
-			return typeof r === 'string' && r.length > 1
+			return typeof r['case_type'] === 'string' && typeof r['case_number'] === 'string' && r['case_type'].length > 1 && r['case_number'].length > 1
 		});
 		console.log('user_data_ids', user_data_ids);
 		cause_search({}).then((results) => {
 			results = results.map(function (result) {
-				if (user_data_ids.indexOf(result['_id']) > -1) {
+				var found = false;
+				for (var i = 0; i < user_data_ids.length; i++) {
+					if (user_data_ids[i]['case_type'] == result['case_type'] && user_data_ids[i]['case_number'] == result['case_number']) {
+						found = true;
+						break;
+					}
+				}
+				if (found) {
 					return { ...result, 'selected': 'yes' };
 				}
 				return { ...result, 'selected': 'no' };
@@ -94,7 +98,7 @@ const Main = (props) => {
 	function addClick(rowData) {
 		console.log('addClick', rowData);
 		setResult(results => results.map(function (result) {
-			if (result['_id'] == rowData['_id']) {
+			if (result['case_number'] == rowData['case_number'] && result['case_type'] == rowData['case_type']) {
 				if (result['selected'] == 'yes') {
 					return { ...result, 'selected': 'no' };
 				}

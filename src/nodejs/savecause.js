@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useU
 var db = mongoose.connection;
 global.db = db;
 
-court_scan({ date: '03/03/2020' }).then((values) => {
+court_scan({ date: '04/03/2020' }).then((values) => {
     console.log(values.length);
     //res.render('home', { title: 'Law Companion Draft', cause_data: JSON.stringify(values) })
     var promises = [];
