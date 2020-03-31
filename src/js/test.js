@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 
 import Gauth from './gauth';
-import Dynamicform from './dynamicform';
 import Datatable from './datatable';
 
 import { user_get, user_set } from './user';
@@ -33,6 +32,15 @@ const Main = (props) => {
 			setResult(results);
 		});
 	}, []);
+	useEffect(() => {
+		var new_data = result.filter(function (r) {
+			return r.selected == 'yes';
+		});
+		new_data = new_data.map(function (r) {
+			return { case_type: r.case_type, case_number: r.case_number }
+		});
+		user_data_set(new_data);
+	}, [result])
 
 	function responseGoogle(response) {
 		if (response && response.user_id && response.user_token) {
@@ -50,13 +58,13 @@ const Main = (props) => {
 			setData('');
 		}
 	}
-	function save_onClick() {
+	function user_data_set(new_data) {
 		var user_id = udata.user_id;
 		var user_token = udata.user_token;
+		var data = JSON.stringify(new_data);
 
-		user_set({ user_id, user_token, data }, function (user) {
-			setData(user.data || '');
-		});
+		setData(data);
+		user_set({ user_id, user_token, data });
 		/*
 		cause_search({ case_numbers: data }).then((results) => {
 			results = results.map(function (result) {
@@ -68,7 +76,6 @@ const Main = (props) => {
 	}
 	function addClick(rowData) {
 		console.log('addClick', rowData);
-		//setData(values => values.split(',').concat(rowData[2]).join(','));
 		setResult(results => results.map(function (result) {
 			if (result['_id'] == rowData['_id']) {
 				if (result['selected'] == 'yes') {
@@ -101,9 +108,6 @@ const Main = (props) => {
 							onLogout={responseGoogle}
 							onFailure={responseGoogle}
 						/>
-						<div className={loggedin ? '' : 'hidden'}>
-							<button onClick={save_onClick}>Submit</button>
-						</div>
 						<Datatable items={result} columns={columns} addClick={addClick} />
 					</Route>
 				</Switch>
