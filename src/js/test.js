@@ -41,7 +41,7 @@ const Main = (props) => {
 
 			user_get({ user_id, user_token }, function (user) {
 				setUdata({ user_id, user_token });
-				setData(user.data);
+				setData(user.data || '');
 			});
 		} else {
 			setLoggedin(false);
@@ -54,20 +54,19 @@ const Main = (props) => {
 		var user_token = udata.user_token;
 
 		user_set({ user_id, user_token, data }, function (user) {
-			setData(user.data);
+			setData(user.data || '');
 		});
+		/*
 		cause_search({ case_numbers: data }).then((results) => {
 			results = results.map(function (result) {
 				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name, ''];
 			});
 			setResult(results);
 		});
+		*/
 	}
 	function dataupdated(update) {
 		setData(update.join(','))
-	}
-	function addOnclick(data) {
-		console.log(data);
 	}
 
 	return (
@@ -94,7 +93,7 @@ const Main = (props) => {
 						<div className={loggedin ? '' : 'hidden'}>
 							<button onClick={save_onClick}>Submit</button>
 						</div>
-						<Datatable data={result} columns={columns} addOnclick={addOnclick} />
+						<Datatable data={result} columns={columns} dataupdated={dataupdated} initialdata={data.split(',').filter(function (el) { return el != '' })} />
 					</Route>
 				</Switch>
 			</div>

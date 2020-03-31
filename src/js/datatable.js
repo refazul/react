@@ -6,6 +6,8 @@ import $ from 'jquery';
 $.DataTable = require('datatables.net');
 
 const Datatable = (props) => {
+	var table = null;
+	const [values, setValues] = useState([]);
 	const columnDefs = [
 		{
 			targets: -1,
@@ -15,13 +17,16 @@ const Datatable = (props) => {
 					$(td).css('background-color', 'red')
 				}
 				*/
-				ReactDOM.render(<button onClick={(e) => {props.addOnclick(rowData)}}>Add</button>, td);
+				ReactDOM.render(<button onClick={(e) => { addClick(rowData) }}>Add</button>, td);
 			}
 		}
-	]
-	const [count, setCount] = useState(0);
-	const tableref = useRef(null);
-	var table = null;
+	];
+	function addClick(rowData) {
+		let new_values = values;
+		new_values.push(rowData[2]);
+		setValues(new_values);
+		props.dataupdated(new_values);
+	}
 
 	useEffect(() => {
 		// Just Once
@@ -38,6 +43,9 @@ const Datatable = (props) => {
 			columnDefs: columnDefs
 		});
 	}, [props.data]);
+	useEffect(() => {
+		setValues(props.initialdata);
+	}, [props.initialdata]);
 	return (
 		<div style={{ backgroundColor: "white" }}>
 			<table id="example1" className="table table-bordered table-striped" ref={tableref} onClick={() => { setCount(count + 1) }}>
