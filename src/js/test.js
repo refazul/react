@@ -83,7 +83,7 @@ const Main = (props) => {
 			});
 			setResult(results);
 		});
-	}, [option])
+	}, [option, data])
 
 	function addClick(rowData) {
 		console.log('addClick', rowData);
