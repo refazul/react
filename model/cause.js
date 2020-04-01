@@ -21,11 +21,11 @@ function cause_search(param = {}, callback) {
         return el != '';
     });
     case_numbers = case_numbers.map((function (el) {
-        return { case_number: el }
+        return { case_number: new RegExp('.*' + el + '.*', 'i') }
     }));
 
     var offset = param.offset || 0;
-    var limit = param.limit || 500;
+    var limit = param.limit || 50;
     var filter = {};
     if (case_numbers.length > 0) {
         filter = { $or: case_numbers };

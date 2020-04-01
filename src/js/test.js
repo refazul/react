@@ -25,17 +25,13 @@ const Main = (props) => {
 	useEffect(() => {
 
 	}, []);
-	useEffect(() => {
-		console.log('result changed', result.length);
-		var new_data = result.filter(function (r) {
-			return r.selected == 'yes';
-		});
-		new_data = new_data.map(function (r) {
-			return { case_type: r.case_type, case_number: r.case_number }
-		});
-		user_data_set(new_data);
-	}, [result])
 
+	function setSearch(search) {
+		clearTimeout(window.search_timer);
+		window.search_timer = setTimeout(() => {
+			result_data_set(data, search);
+		}, 1000)
+	}
 	function responseGoogle(response) {
 		if (response && response.user_id && response.user_token) {
 			setLoggedin(true);
@@ -53,7 +49,7 @@ const Main = (props) => {
 			setData('');
 		}
 	}
-	function result_data_set(user_data) {
+	function result_data_set(user_data, search = '') {
 		var user_data_ids = [];
 		try {
 			user_data_ids = JSON.parse(user_data);
@@ -62,7 +58,7 @@ const Main = (props) => {
 			return typeof r['case_type'] === 'string' && typeof r['case_number'] === 'string' && r['case_type'].length > 1 && r['case_number'].length > 1
 		});
 		console.log('user_data_ids', user_data_ids);
-		cause_search({}).then((results) => {
+		cause_search({ case_numbers: search }).then((results) => {
 			results = results.map(function (result) {
 				var found = false;
 				for (var i = 0; i < user_data_ids.length; i++) {
@@ -79,33 +75,58 @@ const Main = (props) => {
 			setResult(results);
 		});
 	}
-	function user_data_set(new_data) {
-		var user_id = udata.user_id;
-		var user_token = udata.user_token;
-		var data = JSON.stringify(new_data);
 
-		setData(data);
-		user_set({ user_id, user_token, data });
-		/*
-		cause_search({ case_numbers: data }).then((results) => {
-			results = results.map(function (result) {
-				return [result.serial, result.case_date, result.case_number, result.case_type, result.court_name, result.judge_name, ''];
-			});
-			setResult(results);
-		});
-		*/
-	}
 	function addClick(rowData) {
 		console.log('addClick', rowData);
 		setResult(results => results.map(function (result) {
 			if (result['case_number'] == rowData['case_number'] && result['case_type'] == rowData['case_type']) {
-				if (result['selected'] == 'yes') {
-					return { ...result, 'selected': 'no' };
-				}
 				return { ...result, 'selected': 'yes' };
 			}
 			return { ...result };
 		}));
+		user_data_add(rowData);
+	}
+	function removeClick(rowData) {
+		console.log('removeClick', rowData);
+		setResult(results => results.map(function (result) {
+			if (result['case_number'] == rowData['case_number'] && result['case_type'] == rowData['case_type']) {
+				return { ...result, 'selected': 'no' };
+			}
+			return { ...result };
+		}));
+		user_data_remove(rowData);
+	}
+	function user_data_add(rowData) {
+		var user_id = udata.user_id;
+		var user_token = udata.user_token;
+		var existing_data = JSON.parse(data);
+
+		var found = existing_data.filter(function (e) {
+			return (e['case_number'] == rowData['case_number'] && e['case_type'] == rowData['case_type']);
+		});
+		if (found.length > 0) {
+			console.log('nothing to add', found);
+		} else {
+			console.log('user_data_add', rowData);
+			var combined_data = existing_data.concat({ case_number: rowData['case_number'], case_type: rowData['case_type'] });
+			combined_data = JSON.stringify(combined_data);
+			setData(combined_data);
+			user_set({ user_id, user_token, data: combined_data });
+		}
+	}
+	function user_data_remove(rowData) {
+		var user_id = udata.user_id;
+		var user_token = udata.user_token;
+		var existing_data = JSON.parse(data);
+
+		var new_data = existing_data.filter(function (e) {
+			if (e['case_number'] == rowData['case_number'] && e['case_type'] == rowData['case_type']) {
+				return false;
+			}
+			return true;
+		});
+		setData(JSON.stringify(new_data));
+		user_set({ user_id, user_token, data: JSON.stringify(new_data) });
 	}
 
 	return (
@@ -129,7 +150,7 @@ const Main = (props) => {
 							onLogout={responseGoogle}
 							onFailure={responseGoogle}
 						/>
-						<Datatable items={result} columns={columns} addClick={addClick} />
+						<Datatable items={result} columns={columns} addClick={addClick} removeClick={removeClick} setSearch={setSearch} />
 					</Route>
 				</Switch>
 			</div>
