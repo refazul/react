@@ -23,6 +23,7 @@
     "cheerio": "^1.0.0-rc.3",
     "datatables.net": "^1.10.20",
     "express": "^4.17.1",
+    "framer": "^1.1.7",
     "framework7": "^5.4.1",
     "google-auth-library": "^5.10.1",
     "jquery": "^3.4.1",

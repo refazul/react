@@ -8,6 +8,8 @@ import Datatable from './datatable';
 import { user_get, user_set } from './user';
 import { cause_search } from './cause';
 
+import { Framer } from './framer';
+
 const columns = [
 	{ id: 'serial', title: 'Serial' },
 	{ id: 'case_date', title: 'Date' },
@@ -23,7 +25,7 @@ const Main = (props) => {
 	const [udata, setUdata] = useState({});
 	const [result, setResult] = useState([]);
 	const [count, setCount] = useState(0);
-	const [option, setOption] = useState({term: '', offset: 0});
+	const [option, setOption] = useState({ term: '', offset: 0 });
 	useEffect(() => {
 
 	}, []);
@@ -31,11 +33,11 @@ const Main = (props) => {
 	function setSearch(search) {
 		clearTimeout(window.search_timer);
 		window.search_timer = setTimeout(() => {
-			setOption(option => Object.assign({}, option, {'term': search, offset: 0 }))
+			setOption(option => Object.assign({}, option, { 'term': search, offset: 0 }))
 		}, 1000)
 	}
 	function pageClick(offset) {
-		setOption(option => Object.assign({}, option, {offset: offset }))
+		setOption(option => Object.assign({}, option, { offset: offset }))
 	}
 	function responseGoogle(response) {
 		if (response && response.user_id && response.user_token) {
@@ -106,7 +108,11 @@ const Main = (props) => {
 	function user_data_add(rowData) {
 		var user_id = udata.user_id;
 		var user_token = udata.user_token;
-		var existing_data = JSON.parse(data);
+		var existing_data = [];
+
+		try {
+			existing_data = JSON.parse(data);
+		} catch (e) { }
 
 		var found = existing_data.filter(function (e) {
 			return (e['case_number'] == rowData['case_number'] && e['case_type'] == rowData['case_type']);
@@ -124,8 +130,11 @@ const Main = (props) => {
 	function user_data_remove(rowData) {
 		var user_id = udata.user_id;
 		var user_token = udata.user_token;
-		var existing_data = JSON.parse(data);
+		var existing_data = [];
 
+		try {
+			existing_data = JSON.parse(data);
+		} catch (e) { };
 		var new_data = existing_data.filter(function (e) {
 			if (e['case_number'] == rowData['case_number'] && e['case_type'] == rowData['case_type']) {
 				return false;
@@ -141,7 +150,7 @@ const Main = (props) => {
 			<div className="wrapper">
 				<Switch>
 					<Route path="/path1">
-
+						<Framer />
 					</Route>
 					<Route path="/path2">
 

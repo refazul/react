@@ -53,6 +53,9 @@ app.post('/cause', function (req, res) {
         res.json(data)
     });
 });
+app.get('/path*', function (req, res) {
+    res.render('home', { title: 'Law Companion' })
+})
 app.get('/', function (req, res) {
     res.render('home', { title: 'Law Companion' })
 })
