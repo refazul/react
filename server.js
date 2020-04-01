@@ -28,8 +28,10 @@ app.get('/law', function (req, res) {
 })
 app.post('/search', function (req, res) {
     var case_numbers = req.body.case_numbers;
+    var offset = req.body.offset;
+    var limit = req.body.limit;
     //var case_number = '28/2020,4948/2004,2413/2016';
-    cause_search({ case_numbers }, function (results) {
+    cause_search({ case_numbers, offset, limit }, function (results) {
         res.json(results);
     });
 })

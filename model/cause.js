@@ -25,17 +25,19 @@ function cause_search(param = {}, callback) {
     }));
 
     var offset = param.offset || 0;
-    var limit = param.limit || 50;
+    var limit = param.limit || 1000;
     var filter = {};
     if (case_numbers.length > 0) {
         filter = { $or: case_numbers };
     }
     var projection = '_id serial case_date case_number case_type court_name judge_name';//null
-    var options = {skip: offset, limit: limit, sort: 'serial'};
-    
+    var options = { skip: offset, limit: limit, sort: 'serial' };
+
     // Check for more https://mongoosejs.com/docs/api.html#model_Model.find
     Cause.find(filter, projection, options, function (err, data) {
-        callback(data);
+        Cause.count(filter, function (err, count) {
+            callback({data: data, count: count});
+        })
     });
 }
 function cause_data_get(param = {}, callback) {

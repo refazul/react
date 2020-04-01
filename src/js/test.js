@@ -22,6 +22,8 @@ const Main = (props) => {
 	const [data, setData] = useState('');
 	const [udata, setUdata] = useState({});
 	const [result, setResult] = useState([]);
+	const [count, setCount] = useState(0);
+	const [option, setOption] = useState({term: '', offset: 0});
 	useEffect(() => {
 
 	}, []);
@@ -29,19 +31,21 @@ const Main = (props) => {
 	function setSearch(search) {
 		clearTimeout(window.search_timer);
 		window.search_timer = setTimeout(() => {
-			result_data_set(data, search);
+			setOption(option => Object.assign({}, option, {'term': search, offset: 0 }))
 		}, 1000)
+	}
+	function pageClick(offset) {
+		setOption(option => Object.assign({}, option, {offset: offset }))
 	}
 	function responseGoogle(response) {
 		if (response && response.user_id && response.user_token) {
-			setLoggedin(true);
 			var user_id = response.user_id;
 			var user_token = response.user_token;
 
 			user_get({ user_id, user_token }, function (user) {
+				setLoggedin(true);
 				setUdata({ user_id, user_token });
 				setData(user.data || '');
-				result_data_set(user.data);
 			});
 		} else {
 			setLoggedin(false);
@@ -49,16 +53,19 @@ const Main = (props) => {
 			setData('');
 		}
 	}
-	function result_data_set(user_data, search = '') {
+	useEffect(() => {
 		var user_data_ids = [];
 		try {
-			user_data_ids = JSON.parse(user_data);
+			user_data_ids = JSON.parse(data);
 		} catch (e) { }
 		user_data_ids = user_data_ids.filter(function (r) {
 			return typeof r['case_type'] === 'string' && typeof r['case_number'] === 'string' && r['case_type'].length > 1 && r['case_number'].length > 1
 		});
 		console.log('user_data_ids', user_data_ids);
-		cause_search({ case_numbers: search }).then((results) => {
+		cause_search({ case_numbers: option.term, offset: option.offset }).then((response) => {
+			var results = response.data;
+			var count = response.count;
+			setCount(count);
 			results = results.map(function (result) {
 				var found = false;
 				for (var i = 0; i < user_data_ids.length; i++) {
@@ -74,7 +81,7 @@ const Main = (props) => {
 			});
 			setResult(results);
 		});
-	}
+	}, [option])
 
 	function addClick(rowData) {
 		console.log('addClick', rowData);
@@ -150,7 +157,7 @@ const Main = (props) => {
 							onLogout={responseGoogle}
 							onFailure={responseGoogle}
 						/>
-						<Datatable items={result} columns={columns} addClick={addClick} removeClick={removeClick} setSearch={setSearch} />
+						<Datatable items={result} count={count} offset={option.offset} pagesize={1000} columns={columns} addClick={addClick} removeClick={removeClick} setSearch={setSearch} pageClick={pageClick} />
 					</Route>
 				</Switch>
 			</div>
