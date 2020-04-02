@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+	<svg height="450" width="600"></svg>
+	<script>
+		var data = [
+			{ name: "A", value: "0.08167" },
+			{ name: "B", value: "0.01492" },
+			{ name: "C", value: "0.02782" },
+			{ name: "D", value: "0.04253" },
+			{ name: "E", value: "0.12702" },
+			{ name: "F", value: "0.02288" },
+			{ name: "G", value: "0.02015" },
+			{ name: "H", value: "0.06094" },
+			{ name: "I", value: "0.06966" },
+			{ name: "J", value: "0.00153" },
+			{ name: "K", value: "0.00772" },
+			{ name: "L", value: "0.04025" },
+			{ name: "M", value: "0.02406" },
+			{ name: "N", value: "0.06749" },
+			{ name: "O", value: "0.07507" },
+			{ name: "P", value: "0.01929" },
+			{ name: "Q", value: "0.00095" },
+			{ name: "R", value: "0.05987" },
+			{ name: "S", value: "0.06327" },
+			{ name: "T", value: "0.09056" },
+			{ name: "U", value: "0.02758" },
+			{ name: "V", value: "0.00978" },
+			{ name: "W", value: "0.0236" },
+			{ name: "X", value: "0.0015" },
+			{ name: "Y", value: "0.01974" },
+			{ name: "Z", value: "0.00074" }
+
+
+		];
+		var height = 400;
+		var width = 550;
+		var margin = ({ top: 20, right: 20, bottom: 20, left: 20 });
+
+		var x = d3.scaleBand()
+			.domain(data.map(d => d.name))
+			.range([margin.left, width - margin.right])
+			.padding(0.1);
+
+		var y = d3.scaleLinear()
+			.domain([0, d3.max(data, d => d.value)])
+			.range([height - margin.bottom, margin.top]);
+
+		var xAxis = g => g
+			.attr("transform", `translate(0,${height - margin.bottom})`)
+			.call(d3.axisBottom(x));
+
+		var yAxis = g => g
+			.attr("transform", `translate(${margin.left},0)`)
+			.call(d3.axisLeft(y));
+
+		var svg = d3.select('svg');
+
+		var g = svg.append("g").attr("fill", "orange");
+
+		g.selectAll("rect")
+			.data(data)
+			.join("rect")
+			.attr("x", d => x(d.name))
+			.attr("y", d => y(d.value))
+			.attr("height", d => y(0) - y(d.value))
+			.attr("width", x.bandwidth());
+
+		svg.append("g").call(xAxis);
+
+		svg.append("g").call(yAxis);
+
+		var svg = d3.select("#circle").append("svg").attr("width", 200).attr("height", 200)
+
+		// Add the path using this helper function
+		svg.append('circle')
+			.attr('cx', 100)
+			.attr('cy', 100)
+			.attr('r', 50)
+			.attr('stroke', 'black')
+			.attr('fill', '#69a3b2');
+
+	</script>
+
+	<div id="scatter_area"></div>
+	<script>
+
+		// set the dimensions and margins of the graph
+		var margin = { top: 10, right: 40, bottom: 30, left: 30 },
+			width = 450 - margin.left - margin.right,
+			height = 400 - margin.top - margin.bottom;
+
+		// append the svg object to the body of the page
+		var svG = d3.select("#scatter_area")
+			.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+			.attr("transform",
+				"translate(" + margin.left + "," + margin.top + ")");
+
+		// Create data
+		var data = [{ x: 10, y: 20 }, { x: 40, y: 90 }, { x: 80, y: 50 }]
+
+		// X scale and Axis
+		var x = d3.scaleLinear()
+			.domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+			.range([0, width]);       // This is the corresponding value I want in Pixel
+		svG
+			.append('g')
+			.attr("transform", "translate(0," + height + ")")
+			.call(d3.axisBottom(x));
+
+		// X scale and Axis
+		var y = d3.scaleLinear()
+			.domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+			.range([height, 0]);       // This is the corresponding value I want in Pixel
+		svG
+			.append('g')
+			.call(d3.axisLeft(y));
+
+		// Add 3 dots for 0, 50 and 100%
+		svG
+			.selectAll("whatever")
+			.data(data)
+			.enter()
+			.append("circle")
+			.attr("cx", function (d) { return x(d.x) })
+			.attr("cy", function (d) { return y(d.y) })
+			.attr("r", 7)
+
+
+	</script>
+
+</body>
+<html>
