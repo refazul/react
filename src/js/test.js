@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import Gauth from './gauth';
 import Datatable from './datatable';
+import { Frame } from "framer";
 
 import { user_get, user_set } from './user';
 import { cause_search } from './cause';
@@ -166,7 +167,15 @@ const Main = (props) => {
 							onLogout={responseGoogle}
 							onFailure={responseGoogle}
 						/>
-						<Datatable items={result} count={count} offset={option.offset} pagesize={1000} columns={columns} addClick={addClick} removeClick={removeClick} setSearch={setSearch} pageClick={pageClick} />
+						<Frame drag={true}
+							size={1024}
+							radius={30}
+							background={"#fff"}
+							x={100}
+							y={100}
+							rotate={0}>
+							<Datatable items={result} count={count} offset={option.offset} pagesize={1000} columns={columns} addClick={addClick} removeClick={removeClick} setSearch={setSearch} pageClick={pageClick} />
+						</Frame>
 					</Route>
 				</Switch>
 			</div>
